@@ -21,17 +21,14 @@ RSpec.describe 'As a Visitor' do
 
 		it "I see the number of doctors that work at this hospital" do
 
-			expect(page).to have_content("Doctor's on staff: 3")
+			expect(page).to have_content("Doctors on staff: 4")
 		end
 
 		it "I see a unique list of universities that this hospital's doctors attended" do
 
-			within "#universities" do
-				expect(page).to have_content("Love School").times(1)
-				expect(page).to have_content("Hampden University").times(1)
-				expect(page).to have_content("Colorado State University").times(1)
-				expect(page).not_to have_content("Colorado State University").times(2)
-			end
+			expect(page).to have_content("Love School")
+			expect(page).to have_content("Hampden University")
+			expect(page).to have_content("Colorado State University")
 		end
 	end
 end

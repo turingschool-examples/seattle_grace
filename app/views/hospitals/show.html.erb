@@ -1,0 +1,9 @@
+<h2><%= @hospital.name %></h2>
+
+<h4> Doctors on staff: <%= @hospital.doctor_count %></h4>
+
+<h4> Doctors Accredited Universities </h4>
+
+<% @hospital.doctors.uniq_universities.each do |university| %>
+		<%= university %>
+<% end %>
