@@ -11,9 +11,9 @@ RSpec.describe "doctors show page", type: :feature do
     @doctor4 = @hospital2.doctors.create(name: "Derek Webber", specialty: "Attending Surgeon", university: "University of Pennsylvania")
 
     @patient1 = @doctor1.patients.create(name: "Katie Bryce", age: 24)
-    @patient1 = @doctor1.patients.create(name: "Denny Duquette", age: 39)
-    @patient1 = @doctor2.patients.create(name: "Rebecca Pope", age: 32)
-    @patient1 = @doctor2.patients.create(name: "Zola Shepherd", age: 2)
+    @patient2 = @doctor1.patients.create(name: "Denny Duquette", age: 39)
+    @patient3 = @doctor2.patients.create(name: "Rebecca Pope", age: 32)
+    @patient4 = @doctor2.patients.create(name: "Zola Shepherd", age: 2)
   end
 
   scenario "see name, specialty and university" do
