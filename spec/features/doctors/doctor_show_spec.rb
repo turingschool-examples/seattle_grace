@@ -20,12 +20,3 @@ RSpec.describe 'As a Visitor' do
     end
   end
 end
-
-# As a visitor
-# When I visit a doctor's show page
-# I see all of that doctor's information including:
-#   - name
-#   - specialty
-#   - university where they got their doctorate
-# And I see the name of the hospital where this doctor works
-# And I see the names of all of the patients this doctor has
