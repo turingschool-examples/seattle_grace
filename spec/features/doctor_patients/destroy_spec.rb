@@ -15,10 +15,12 @@ RSpec.describe "on a doctor's show page" do
       @patient_3 = Patient.create(name: "Rebecca Pope", age: 13, doctors: [@doctor_1, @doctor_3])
       @patient_4 = Patient.create(name: "Zola Shepard", age: 40, doctors: [@doctor_4])
     end
+
     it "sees a button to remove that patient from the doctor" do
       visit "/doctors/#{@doctor_2.id}"
       expect(page).to have_button("Remove Patient")
     end
+
     it "can remove a patient that doctor's caseload" do
       visit "/doctors/#{@doctor_2.id}"
       expect(page).to have_content(@patient_2.name)
@@ -26,6 +28,21 @@ RSpec.describe "on a doctor's show page" do
       click_button "Remove Patient"
 
       visit "/doctors/#{@doctor_2.id}"
+      expect(page).to_not have_content(@patient_2.name)
+    end
+
+    it "can remove a patient that doctor's caseload" do
+      visit "/doctors/#{@doctor_1.id}"
+      expect(page).to have_content(@patient_1.name)
+      expect(page).to have_content(@patient_3.name)
+
+      within("#patients-#{@patient_1.id}") do
+        within("#patient_delete-#{@patient_1.id}") do
+        click_button "Remove Patient"
+        end
+      end
+
+      visit "/doctors/#{@doctor_1.id}"
       expect(page).to_not have_content(@patient_2.name)
     end
   end
