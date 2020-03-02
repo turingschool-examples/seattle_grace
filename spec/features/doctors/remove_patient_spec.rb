@@ -17,6 +17,7 @@ describe "I may remove a patient from a doctor" do
       doctor_2.patients << patient_1
       doctor_2.patients << patient_2
       doctor_2.patients << patient_3
+      doctor_2.patients << patient_4
 
       visit "/doctors/#{doctor_1.id}"
 
@@ -48,6 +49,7 @@ describe "I may remove a patient from a doctor" do
       expect(page).to have_content(patient_1.name)
       expect(page).to have_content(patient_2.name)
       expect(page).to have_content(patient_3.name)
+      expect(page).to have_content(patient_4.name)
     end
   end
 end
