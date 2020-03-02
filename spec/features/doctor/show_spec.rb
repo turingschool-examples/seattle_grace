@@ -29,7 +29,6 @@ describe 'As a visitor on the doctor show page' do
     end
 
     expect(current_path).to eq("/doctors/#{@doctor.id}")
-    expect(page).to have_content("Patient has been removed from caseload")
     expect(page).to_not have_content("Katie Bryce")
   end
 
