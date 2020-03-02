@@ -7,6 +7,6 @@ class Hospital <ApplicationRecord
   end
 
   def universities
-    universities = doctors.select(:patients).select(:universities).distinct.pluck(:university)
+    doctors.select(:patients).select(:universities).distinct.pluck(:university)
   end
 end
