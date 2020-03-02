@@ -1,5 +1,3 @@
-
-
 require "rails_helper"
 
 RSpec.describe "on a doctor's show page" do
@@ -22,17 +20,21 @@ RSpec.describe "on a doctor's show page" do
       expect(page).to have_content(@doctor_1.name)
       expect(page).to have_content(@doctor_1.specialty)
       expect(page).to have_content(@doctor_1.university)
+      expect(page).to_not have_content(@doctor_2.name)
     end
 
     it "can see the name of the hospital where they work" do
       visit "/doctors/#{@doctor_1.id}"
       expect(page).to have_content(@hospital_1.name)
+      expect(page).to_not have_content(@hospital_2.name)
     end
 
     it "can see the names of all its patients" do
       visit "/doctors/#{@doctor_1.id}"
       expect(page).to have_content(@patient_1.name)
       expect(page).to have_content(@patient_3.name)
+      expect(page).to_not have_content(@patient_2.name)
+      expect(page).to_not have_content(@patient_4.name)
     end
   end
 end

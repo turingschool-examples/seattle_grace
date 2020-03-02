@@ -1,16 +1,16 @@
-require 'rails_helper'
+# User Story 2, Patient Index Page
+# ​
+# As a visitor
+# When I visit the patient index page
+# I see the names of all patients listed from oldest to youngest
+# ```
+# ​
 
-RSpec.describe Patient, type: :model do
-  describe 'validations' do
-    it {should validate_presence_of :name}
-    it {should validate_presence_of :age}
-  end
-  describe 'relationships' do
-    it {should have_many :doctor_patients}
-    it {should have_many(:doctors).through(:doctor_patients)}
-  end
 
-  describe "#patient_order" do
+require "rails_helper"
+
+RSpec.describe "on the patient index page" do
+  context "as a visitor" do
     before(:each) do
       @hospital_1 = Hospital.create(name: "Grey Sloan Memorial Hospital")
       @hospital_2 = Hospital.create(name: "Pacific Northwest General Hospital")
@@ -24,11 +24,14 @@ RSpec.describe Patient, type: :model do
       @patient_3 = Patient.create(name: "Rebecca Pope", age: 13, doctors: [@doctor_1, @doctor_3])
       @patient_4 = Patient.create(name: "Zola Shepard", age: 40, doctors: [@doctor_4])
     end
-    it "can list patients from oldest to youngest" do
-      expect(Patient.patient_order[0]).to eq(@patient_4)
-      expect(Patient.patient_order[1]).to eq(@patient_1)
-      expect(Patient.patient_order[2]).to eq(@patient_2)
-      expect(Patient.patient_order[3]).to eq(@patient_3)
+    it "can see the names of all patients from oldest to youngest" do
+      visit "/patients"
+      within(".patients-0") do
+        expect(page.all('li')[0]).to have_content(@patient_4.name)
+        expect(page.all('li')[1]).to have_content(@patient_1.name)
+        expect(page.all('li')[2]).to have_content(@patient_2.name)
+        expect(page.all('li')[3]).to have_content(@patient_3.name)
+      end
     end
   end
 end

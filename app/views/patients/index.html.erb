@@ -1,0 +1,5 @@
+<% @patients.patient_order.each_with_index do |patient, index| %>
+<section class="patients-<%= index %>">
+  <li><%= patient.name %></li>
+<% end %>
+</section>
