@@ -3,8 +3,7 @@ class Patient < ApplicationRecord
   has_many :doctor_patients
   has_many :doctors, through: :doctor_patients
 
-  def order_age
-    binding.pry
-    Patient.order(:age)
+  def self.give_age_order
+    order(age: :desc)
   end
 end
