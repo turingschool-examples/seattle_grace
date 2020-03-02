@@ -5,7 +5,10 @@
 <p>University: <%= @doctor.university %></p>
 <p>Practices at <%= @doctor.hospital.name %></p>
 
-<section id="patients">
+
 <% @doctor.patients.each do |patient| %>
+  <section id="patients-<%= patient.id %>">
   <p><%= patient.name%></p>
+  <%= link_to 'Remove Patient', doctor_patient_path(id: patient.id, doctor_id: @doctor.id), method: :delete %>
+  </section>
 <% end %>
