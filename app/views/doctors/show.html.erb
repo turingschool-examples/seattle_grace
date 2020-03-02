@@ -4,5 +4,7 @@
 <p>Hospital: <%= @doctor.hospital.name %></p>
 <h2>Patients</h2>
 <% @doctor.patients.each do |patient| %>
-  <p><%= patient.name %></p>
+  <section id="patient-<%= patient.id %>">
+    <p><%= patient.name %></p>
+  </section>
 <% end %>
