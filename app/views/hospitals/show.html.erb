@@ -1,1 +1,8 @@
 <h1> <%= @hospital.name %> </h1>
+<section id="docs">
+<p> Doctor Count: <%= @hospital.doc_count %> </p>
+<h3> Universities: </h3>
+<% @hospital.uniq_universities.each do |name| %>
+<p><%= name %> </p>
+<% end %>
+</section>

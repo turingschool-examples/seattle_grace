@@ -19,6 +19,15 @@ RSpec.describe 'As a User' do
 	it "hospital info" do
 		expect(page).to have_content("Pacific Northwest General Hospital")
 	end
+
+
+	it "doc info" do
+		within "#docs" do
+			expect(page).to have_content("2")
+			expect(page).to have_content("Harvard University")
+			expect(page).to have_content("Johns Hopkins University")
+		end
+	end
   end
 end
 
