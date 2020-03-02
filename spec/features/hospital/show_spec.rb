@@ -21,4 +21,9 @@ describe 'As a visitor on the hospital show page' do
     expect(page).to have_content("Number of doctors: 2")
   end
 
+  it "I see a list of all univiersities the doctors have attended" do
+    expect(page).to have_content("#{@doctor_1.university}")
+    expect(page).to have_content("#{@doctor_2.university}")
+  end
+
 end
