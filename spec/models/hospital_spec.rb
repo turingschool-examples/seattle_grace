@@ -25,7 +25,7 @@ RSpec.describe Hospital, type: :model do
       dr2 = hs1.doctors.create!(name: "Meghan", specialty: "holistics", university: "Community College")
       dr3 = hs1.doctors.create!(name: "Zeke", specialty: "kidney stuff", university: "Community College")
 
-      expected_result = [dr1.university, dr2.university]
+      expected_result = [dr2.university, dr1.university]
 
       expect(hs1.unique_universities).to eq(expected_result)
     end
