@@ -85,6 +85,39 @@ RSpec.describe 'As a Visitor' do
 			expect(current_path).to eq("/hospitals/#{@south.id}/doctors/#{@holly.id}")
 
 			expect(page).not_to have_content(@katie.name)
-		end			
+		end
+
+		it 'When the patient is removed from a doctors work load they still exist as a patient' do
+
+			within "#patient-#{@zola.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@danny.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@denny.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@rebecca.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@katie.id}" do
+				expect(page).to have_button("Remove Patient")
+
+				click_on "Remove Patient"
+			end
+
+			expect(current_path).to eq("/hospitals/#{@south.id}/doctors/#{@holly.id}")
+
+			expect(page).not_to have_content(@katie.name)
+
+			visit '/patients'
+
+			expect(page).to have_content(@katie.name)
+		end					
 	end
 end
