@@ -1,7 +1,7 @@
 <%= @hospital.name %>
 
-<%= @hospital.count_doctors %>
+<p>Number of Doctors: <%= @hospital.count_doctors %> </p>
 
-<% @hospital.distinct_universities each do |doctor| %>
-<%= doctor.university %>
+<% @hospital.distinct_universities.each do |university| %>
+  <%= university %>
 <% end %>

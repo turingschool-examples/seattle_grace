@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Hospital Show Page" do
     it "can see the hospital's information" do
+    Hospital.destroy_all
+    Doctor.destroy_all
 
     hospital_1 = Hospital.create(
       name: "Grey Sloan Memorial Hospital"
@@ -43,7 +45,7 @@ RSpec.describe "Hospital Show Page" do
     visit "/hospitals/#{hospital_1.id}"
 
     expect(page).to have_content(hospital_1.name)
-    expect(page).to have_content("Number of Doctors: 2")
+    expect(page).to have_content("Number of Doctors: 3")
     expect(page).to have_content(doctor_1.university)
     expect(page).to have_content(doctor_2.university)
 
