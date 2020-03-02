@@ -11,8 +11,4 @@ RSpec.describe Doctor, type: :model do
     it {should have_many :doctor_patients}
     it {should have_many(:patients).through(:doctor_patients)}
   end
-  describe 'instance methods' do
-  before :each do
-    
-  end
 end

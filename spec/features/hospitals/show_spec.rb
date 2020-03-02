@@ -16,7 +16,7 @@ RSpec.describe "Patients index page", type: :feature do
     visit "/hospitals/#{hospital_1.id}"
 
     expect(page).to have_content(hospital_1.name)
-    expect(page).to have_content("Number of Doctors: 2")
+    expect(page).to have_content("Number of Doctors: 3")
     expect(page).to have_content(doctor_1.university, count: 1)
     expect(page).to have_content(doctor_2.university, count: 1)
   end
