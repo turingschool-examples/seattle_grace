@@ -12,7 +12,7 @@ RSpec.describe Doctor, type: :model do
     it {should have_many(:patients).through(:doctor_patients)}
   end
 
-  describe "instance methods" do
+  describe "class methods" do
     it ".unique_education" do
       grey_hospital = Hospital.create(name: "Grey Sloan Memorial Hospital")
 
