@@ -1,0 +1,14 @@
+<h1>Doctor Show Page</h1>
+
+<h2>Doctor: <%= @doctor.name %></h2>
+<p>Specialty: <%= @doctor.specialty %></p>
+<p>University: <%= @doctor.university %></p>
+<p>Resident of: <%= @doctor.hospital.name %></p>
+
+<h2>Patients:</h2>
+<% @doctor.patients.each do |patient| %>
+<section id = "patient-<%=patient.id%>">
+<p>name: <%= patient.name %></p>
+<%= link_to "remove patient from doctor", "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :patch %>
+</section>
+<% end %>

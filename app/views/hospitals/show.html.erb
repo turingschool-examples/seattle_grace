@@ -1,0 +1,9 @@
+<h1>Hospital Index</h1>
+<h2><%= @hospital.name %></h2>
+
+<p>Number of Doctors: <%= @hospital.number_of_doctors %></p>
+<h3>List of Universities Doctors at <%= @hospital.name %> attended:</h3>
+<p><% @hospital.doctors.each do |doctor| %></p>
+  <p><%= doctor.university %></p>
+<% end %>
+
