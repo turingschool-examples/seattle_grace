@@ -35,6 +35,17 @@ RSpec.describe 'As a User' do
 			expect(page).to have_content("Denny Duquette")
 		end
 	end
+	
+	it 'remove patient' do
+		save_and_open_page
+		within "#patient-#{@patient1.id}" do
+			click_on "remove from caseload"
+		end
+		within "#patients" do
+			expect(page).to_not have_content("Katie Bryce")
+		end
+		save_and_open_page
+	end
 
    end
 end
