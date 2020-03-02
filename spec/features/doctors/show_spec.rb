@@ -32,7 +32,7 @@ RSpec.describe "As a visitor " , type: :feature do
       expect(page).to_not have_content("Name: #{@doctor2.name}")
       expect(page).to_not have_content("Name: #{@doctor3.name}")
       expect(page).to_not have_content("Name: #{@doctor4.name}")
-      expect(page).to have_content("Patients (from oldest to youngest): #{@patient1.name}, #{@patient3.name}, #{@patient4.name},")
+      expect(page).to have_content("Patients: #{@patient1.name}, #{@patient3.name}, #{@patient4.name},")
       expect(page).to_not have_content(@patient2.name)
 
     end
