@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Hospital, type: :model do
+RSpec.describe 'as a VISITOR' do
   before :each do
     @hospital_1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')
 
@@ -11,24 +11,27 @@ RSpec.describe Hospital, type: :model do
     @doc_1.patients.create!(name: 'Katie Bryce', age: 24)
     @doc_1.patients.create!(name: 'Denny Duquette', age: 39)
     @doc_2.patients.create!(name: 'Rebecca Pope', age: 32)
+
+    visit "/hospitals/#{@hospital_1.id}"
   end
 
-  describe 'validations' do
-    it { should validate_presence_of :name }
-  end
-
-  describe 'relationships' do
-    it { should have_many :doctors }
-  end
-
-  describe 'model methods' do
-    it '.doctor_count' do
-      expect(@hospital_1.doctor_count).to eq(3)
+  describe 'when I visit the hospital SHOW PAGE' do
+    it 'can see hospital information' do
+      expect(page).to have_content('Grey Sloan Memorial Hospital')
     end
 
-    it '.university_list' do
-      expected = [@doc_1.university, @doc_2.university, @doc_3.university]
-      expect(@hospital_1.university_list).to eq(expected)
+    it 'can see the number of doctors working at this hospital' do
+      within '#doctor_count' do
+        expect(page).to have_content(3)
+      end
+    end
+
+    it 'can see a unique list of universities that doctors have attended' do
+      within '#doctor_universities' do
+        expect(page).to have_content('Harvard University')
+        expect(page).to have_content('Johns Hopkins University')
+        expect(page).to have_content('Stanford University')
+      end
     end
   end
 end
