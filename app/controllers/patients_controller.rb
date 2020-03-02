@@ -5,10 +5,8 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-    doctor = Doctor.find(params[:doctor_id])
-    patient = doctor.patients.find(params[:patient_id])
-    DoctorPatient.find_by(patient_id: patient.id, doctor_id: doctor.id).delete
-    redirect_to "/doctors/#{doctor.id}"
+    DoctorPatient.find_by(patient_id: params[:patient_id], doctor_id: params[:doctor_id]).delete
+    redirect_to "/doctors/#{params[:doctor_id]}"
   end
 
   private
