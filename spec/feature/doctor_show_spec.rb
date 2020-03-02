@@ -16,12 +16,15 @@ RSpec.describe 'as a visitor', type: :feature do
       expect(page).to have_content(dr1.specialty)
       expect(page).to have_content(dr1.university)
       expect(page).to have_content(hs1.name)
+
       within "#pt-#{pt1.id}" do
         expect(page).to have_content(pt1.name)
       end
+
       within "#pt-#{pt2.id}" do
         expect(page).to have_content(pt2.name)
       end
+
       expect(page).to_not have_content(pt3.name)
     end
 
@@ -38,13 +41,12 @@ RSpec.describe 'as a visitor', type: :feature do
         click_on "Remove Patient"
       end
 
-      expect(current_page).to eq("/doctors/#{dr1.id}")
+      expect(current_path).to eq("/doctors/#{dr1.id}")
       expect(page).to_not have_content(pt1.name)
     end
   end
 end
 
-#
 # User Story 4, Remove a Patient from a Doctor
 # ​
 # As a visitor
@@ -53,13 +55,6 @@ end
 # When I click that button for one patient
 # I'm brought back to the Doctor's show page
 # And I no longer see that patient's name listed
-
-
-
-
-
-
-
 
 #
 # User Story 1, Doctors Show Page

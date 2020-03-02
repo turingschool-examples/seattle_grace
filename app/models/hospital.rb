@@ -3,10 +3,10 @@ class Hospital <ApplicationRecord
   has_many :doctors
 
   def total_doctor_count
-    self.doctors.count
+    doctors.count
   end
 
   def unique_universities
-    self.doctors.select(:university).distinct.pluck(:university)
+    doctors.distinct.pluck(:university)
   end
 end
