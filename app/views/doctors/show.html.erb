@@ -1,9 +1,10 @@
 <h1>Doctor Show Page</h1>
 
-<%= @doctor.name %>
-<%= @doctor.specialty %>
-<%= @doctor.university %>
-<%= @doctor.hospital.name %>
+<br>name: <%= @doctor.name %></br>
+<br>specialty: <%= @doctor.specialty %></br>
+<br>university: <%= @doctor.university %></br>
+<br>hospital: <%= @doctor.hospital.name %></br>
+<h3>patients:</h3>
 <% @doctor.patients.each do |patient| %><br></br>
   <p><%= patient.name %> <%=link_to "Remove #{patient.name}", "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :delete %></p>
 <% end %>
