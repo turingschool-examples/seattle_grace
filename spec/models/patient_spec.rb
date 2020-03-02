@@ -13,6 +13,7 @@ RSpec.describe Patient, type: :model do
 
   describe 'methods' do
     before :each do
+      Patient.destroy_all
     @patient1 = Patient.create!(name: "Katie Bryce",
                             age: 24)
     @patient2 = Patient.create!(name: "Denny Duquette",
@@ -21,12 +22,10 @@ RSpec.describe Patient, type: :model do
                             age: 32)
     @patient4 = Patient.create!(name: "Zola  Shepherd",
                             age: 2)
-    @patients = [@patient1, @patient2, @patient3, @patient4,]
     end
-    # it "old_to_young" do
-    #
-    #   expected = ["Denny Duquette", "Rebecca Pope", "Katie Bryce", "Zola Shepherd"]
-    #   expect(@patients.old_to_young).to eq(expected)
-   # end
+    it "old_to_young" do
+      expected = ["Denny Duquette", "Rebecca Pope", "Katie Bryce", "Zola  Shepherd"]
+      expect(Patient.old_to_young.pluck(:name)).to eq(expected)
+   end
   end
 end
