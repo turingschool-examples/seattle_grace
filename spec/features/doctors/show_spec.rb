@@ -22,7 +22,6 @@ describe 'As a visitor' do
         expect(page).to have_content("#{@katie.name}")
         expect(page).to have_content("#{@denny.name}")
       end
-      save_and_open_page
     end
   end
 end
