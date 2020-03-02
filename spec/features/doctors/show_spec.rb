@@ -28,7 +28,7 @@ RSpec.describe "doctors show page", type: :feature do
     visit "/doctors/#{@doctor1.id}"
 
     expect(page).to have_content(@doctor1.hospital.name)
-    expect(page).to have_content("Katie Bryce, Denny Duquette")
+    expect(page).to have_content("Katie Bryce Denny Duquette")
   end
 
 end
