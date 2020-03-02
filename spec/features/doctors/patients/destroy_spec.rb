@@ -12,22 +12,36 @@ RSpec.describe 'As a visitor' do
       patient2 = Patient.create!(name: 'Denny Duquette', age: 39)
       patient3 = Patient.create!(name: 'Rebecca Pope', age: 32)
       patient4 = Patient.create!(name: 'Zola Shepherd', age: 2)
-      doctor1.patients << [patient1, patient3, patient4]
-      doctor2.patients << [patient2]
+      patient5 = Patient.create!(name: 'John Lennon', age: 79)
+      doctor1.patients << [patient1, patient3, patient4, patient5]
+      doctor2.patients << [patient2, patient5]
 
       visit doctor_path(doctor1.id)
 
       within("#patient-#{patient4.id}") { click_button ('Remove this patient') }
 
       expect(current_path).to eq(doctor_path(doctor1.id))
-
       expect(page).to_not have_css("#patient-#{patient4.id}")
       expect(page).to have_css("#patient-#{patient1.id}")
       expect(page).to have_css("#patient-#{patient3.id}")
 
+      within("#patient-#{patient5.id}") { click_button ('Remove this patient') }
+
+      expect(current_path).to eq(doctor_path(doctor1.id))
+      expect(page).to_not have_css("#patient-#{patient5.id}")
+      expect(page).to have_css("#patient-#{patient1.id}")
+      expect(page).to have_css("#patient-#{patient3.id}")
+
+      visit doctor_path(doctor2.id)
+      expect(page).to have_css("#patient-#{patient2.id}")
+      expect(page).to have_css("#patient-#{patient5.id}")
+      expect(page).to_not have_css("#patient-#{patient1.id}")
+      expect(page).to_not have_css("#patient-#{patient3.id}")
+
       visit patients_path
 
       expect(page).to have_content(patient4.name)
+      expect(page).to have_content(patient5.name)
     end
   end
 end
