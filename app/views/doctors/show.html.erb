@@ -1,0 +1,12 @@
+<H2><%= @doctor.name %></h2>
+
+<section id="doctor_info">
+  <p>Specialty: <%= @doctor.specialty %></p>
+  <p>University: <%= @doctor.university %>
+</section>
+
+<section id="patient_info">
+  <% @doctor.patients.each do |patient| %>
+    <p><%= "#{patient.name}, #{patient.age}" %></p>
+  <% end %>
+</section>

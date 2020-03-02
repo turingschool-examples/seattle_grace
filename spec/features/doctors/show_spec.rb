@@ -16,10 +16,11 @@ RSpec.describe 'As a VISITOR' do
     it 'can see doctor information' do
       visit "/doctors/#{@doc_1.id}"
 
+      expect(page).to have_content('Meredith Grey')
+
       within '#doctor_info' do
-        expect(page).to have_content('Name: Meredith Grey')
         expect(page).to have_content('Specialty: General Surgery')
-        expect(page).to have_content('Education: Harvard University')
+        expect(page).to have_content('University: Harvard University')
       end
     end
 
@@ -29,6 +30,7 @@ RSpec.describe 'As a VISITOR' do
       within '#patient_info' do
         expect(page).to have_content('Katie Bryce, 24')
         expect(page).to have_content('Denny Duquette, 39')
+        expect(page).to_not have_content('Rebecca Pope, age: 32')
       end
     end
   end
