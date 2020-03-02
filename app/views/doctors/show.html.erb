@@ -5,8 +5,8 @@
 <p>Hospital: <%= @doctor.hospital.name %> </p>
 <p>Patients:
 <% @doctor.patients_sorted.each do |patient| %>
-  <li> <%= patient.name %>
-    <%= button_to "Remove Patient", "/doctor/:id/patients/remove_patient" %>
+  <li id= 'patient-<%=patient.id%>'> <%= patient.name %>
+    <%= button_to "Remove Patient", "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :patch %>  
   </li>
 <% end %>
 </p>

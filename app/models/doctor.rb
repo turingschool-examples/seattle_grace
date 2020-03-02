@@ -8,6 +8,7 @@ class Doctor <ApplicationRecord
     patients.order(age: :desc)
   end
 
-  def remove_patient
+  def remove(patient_id)
+    patients.delete(Patient.where("patients.id = #{patient_id}"))
   end
 end
