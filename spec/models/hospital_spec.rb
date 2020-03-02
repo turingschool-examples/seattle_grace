@@ -7,4 +7,16 @@ RSpec.describe Hospital, type: :model do
   describe 'relationships' do
     it {should have_many :doctors}
   end
+  describe "methods" do
+    it "sum the total number of doctors" do
+      hs1 = Hospital.create!(name: "Johns Hopkins")
+      dr1 = hs1.doctors.create!(name: "Matt", specialty: "brains", university: "GVSU", )
+      dr2 = hs1.doctors.create!(name: "Meghan", specialty: "holistics", university: "Community College")
+      dr3 = hs1.doctors.create!(name: "Zeke", specialty: "kidney stuff", university: "Community College")
+
+      expected_result = 3
+
+      expect(hs1.total_doctor_count).to eq(expected_result)
+    end
+  end
 end
