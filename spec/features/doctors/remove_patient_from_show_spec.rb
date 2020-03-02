@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'patients index', type: :feature do
-  describe 'I see names of all patients ordered oldest to youngest' do
+RSpec.describe 'doctor show', type: :feature do
+  describe 'I see name of doc, which college they went to and list of patients ' do
     before(:each) do
       @hospital1 = Hospital.create!(name: "Grey Sloan Memorial Hospital")
       @hospital2 = Hospital.create!(name: "Pacific Northwest General Hospital")
@@ -30,16 +30,18 @@ RSpec.describe 'patients index', type: :feature do
 
 
     end
-    it "see the list ordered by age " do
-      expected_order = "Denny Duquette\nRebecca Pope Katie Bryce Zola Shepherd"
-
-      visit "/patients/index"
-      expect(page).to have_content("Welcome to Patients Index Page")
-      expect(page).to have_content(expected_order)
+    it "see button to remove patient" do
+      visit "/doctors/#{@doc1.id}"
+      expect(page).to have_content(@doc1.name)
+      expect(page).to have_content(@hospital1.name)
+      expect(page).to have_content(@doc1.university)
+      expect(page).to have_content(@doc1.specialty)
       expect(page).to have_content(@patient1.name)
-      expect(page).to have_content(@patient2.name)
-      expect(page).to have_content(@patient3.name)
-      expect(page).to have_content("Zola Shepherd")
+      expect(page).to have_button("Remove #{@patient1.name}")
+
+      click_button "Remove #{@patient1.name}"
+      expect(current_path).to eq("/doctors/#{@doc1.id}")
+      expect(page).to_not have_content(@patient1.name)
 
     end
   end
