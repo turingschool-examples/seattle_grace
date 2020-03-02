@@ -5,6 +5,6 @@ class Patient <ApplicationRecord
   has_many :doctors, through: :doctor_patients
 
   def self.order_by_age
-    Patient.order('patients.age DESC').distinct
+    Patient.order('patients.age DESC')
   end
 end

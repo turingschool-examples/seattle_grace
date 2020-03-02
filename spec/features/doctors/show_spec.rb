@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe "Doctor Show Page" do
     it "can see the doctors information" do
 
