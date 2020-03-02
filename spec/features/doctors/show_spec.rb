@@ -34,7 +34,6 @@ RSpec.describe 'As a User' do
 			expect(page).to have_content("Katie Bryce")
 			expect(page).to have_content("Denny Duquette")
 		end
-		save_and_open_page
 	end
 
    end

@@ -16,10 +16,11 @@ RSpec.describe 'As a User' do
     end
 
 
-	it "alphabetical patients" do
+	it "patients" do
 		expect(page).to have_content("Katie Bryce")
 		expect(page).to have_content("Denny Duquette")
 		expect(page).to have_content("Rebecca Pope")
+		save_and_open_page
 	end
 
    end
