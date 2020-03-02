@@ -23,4 +23,14 @@ describe 'As a visitor on the doctor show page' do
     expect(page).to have_content("#{@patient_2.name}")
   end
 
+  it "I can delete a patient from that doctor" do
+    within("#patient#{@patient_1.id}") do
+      click_button 'Remove patient from caseload'
+    end
+
+    expect(current_path).to eq("/doctors/#{@doctor.id}")
+    expect(page).to have_content("Patient has been removed from caseload")
+    expect(page).to_not have_content("Katie Bryce")
+  end
+
 end
