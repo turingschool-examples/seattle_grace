@@ -1,9 +1,9 @@
-<h1>Name: <%=@doctor.name%></h1><br>
-<p>Specialty: <%=@doctor.specialty%></p><br>
-<p>University: <%=@doctor.university%></p><br>
-<p>Hospital: <%=@doctor.hospital.name%></p><br><br><br>
-<p>Current Patients:
-  <%@doctor.patients.each do |patient|%>
+<h1>Doctor: <%=@doctor.name%></h1><br>
+<h3>Specialty:</h3> <p><%=@doctor.specialty%></p><br>
+<h3>University:</h3> <p><%=@doctor.university%></p><br>
+<h3>Hospital:</h3> <p><%=@doctor.hospital.name%></p><br><br><br>
+<h3>Current Patients:</h3>
+  <p><%@doctor.patients.each do |patient|%>
     <section id="patient-<%= patient.id %>">
       Name: <%=patient.name%><br>
       <%= button_to "Remove Patient", doctor_patient_path(patient.find_patient_doctor(@doctor).id), method: :delete %>

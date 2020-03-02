@@ -1,5 +1,6 @@
-<h1>All Patients<h1>
+<h1>All Patients</h1>
 
-<%@patients.each do |patient|%>
-  <%=patient.name%><br>
-<%end%>
+<p><%@patients.each do |patient|%>
+  Name: <%=patient.name%><br>
+  Age: <%=patient.age%><br><br>
+<%end%></p>

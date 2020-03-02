@@ -1,5 +1,6 @@
-<h1><%=@hospital.name%></h1><br>
-<p><%=@hospital.total_doctors%> Doctors</p><br>
+<h1>Hospital: <%=@hospital.name%></h1><br>
+<h3>Total Doctors:</h3> <p><%=@hospital.total_doctors%></p><br>
+<h3>Where our Doctors Studied:</h3>
 <p><%@hospital.unique_universities.each do |university|%>
   <%=university%><br>
   <%end%></p><br>
