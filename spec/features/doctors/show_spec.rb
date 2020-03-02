@@ -28,7 +28,19 @@ RSpec.describe "doctors show page", type: :feature do
     visit "/doctors/#{@doctor1.id}"
 
     expect(page).to have_content(@doctor1.hospital.name)
-    expect(page).to have_content("Katie Bryce Denny Duquette")
+    expect(page).to have_content("Katie Bryce")
+    expect(page).to have_content("Denny Duquette")
+  end
+
+  scenario "see and use remove button next to patient name" do
+    visit "/doctors/#{@doctor1.id}"
+
+    within("#patient-#{@patient2.id}") do
+      expect(page).to have_button('Remove This Patient')
+      click_button('Remove This Patient')
+    end
+
+    expect(page).to_not have_content("Denny Duquette")
   end
 
 end
