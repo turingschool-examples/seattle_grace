@@ -2,9 +2,11 @@
 <p id="specialty">Specialty: <%= @doctor.specialty %></p>
 <p id="university">University: <%= @doctor.university %></p>
 <p id="hospital">Hospital: <%= @doctor.hospital.name %></p>
-<h2>Patients</h2>
-<% @doctor.doctor_patients.each do |doctor_patient| %>
-  <section id="patient-<%= doctor_patient.patient.id %>">
-    <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient.id), method: :delete %></p>
-  </section>
-<% end %>
+<section id="patients">
+  <h2>Patients</h2>
+  <% @doctor.doctor_patients.each do |doctor_patient| %>
+    <section id="patient-<%= doctor_patient.patient.id %>">
+      <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient.id), method: :delete %></p>
+    </section>
+  <% end %>
+</section>
