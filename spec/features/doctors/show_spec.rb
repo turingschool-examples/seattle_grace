@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor to doctor show page', type: :feature do
+RSpec.describe 'As a visitor to doctor show page' do
   before :each do
     @hospital = Hospital.create!(name: 'Parkland Hospital')
     @tron = @hospital.doctors.create!(name: 'Dr. Tron Kattington', specialty: 'Attending Surgeon', university: 'University of Mind Ya Business')
@@ -8,8 +8,8 @@ RSpec.describe 'As a visitor to doctor show page', type: :feature do
     @patient2 = @tron.patients.create!(name: 'Becky', age: 22)
     @patient3 = Patient.create!(name: 'John', age: 20)
   end
-  ​it 'should show a doctors information' do
-    visit "/doctors/{#{@tron.id}}"
+  it 'should show a doctors information' do
+    visit "/doctors/#{@tron.id}"
     expect(page).to have_content(@tron.name)
     expect(page).to have_content(@tron.specialty)
     expect(page).to have_content(@tron.university)
