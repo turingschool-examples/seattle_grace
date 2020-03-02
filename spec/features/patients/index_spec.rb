@@ -18,11 +18,11 @@ RSpec.describe 'Patients index page' do
     doctor2.patients << patient3
     doctor2.patients << patient4
 
-    visit '/patients'
+    visit patients_path
 
     expect(page).to have_content('1. Denny Duquette')
     expect(page).to have_content('2. Rebecca Pope')
     expect(page).to have_content('3. Katie Bryce')
-    expect(page).to have_content('4. Zola  Shepherd')
+    expect(page).to have_content('4. Zola Shepherd')
   end
 end
