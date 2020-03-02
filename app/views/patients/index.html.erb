@@ -1,0 +1,5 @@
+<h2>All patients: </h2>
+
+<% @patients.ordered_patients.each do |patient| %>
+  <p><%= patient.name %></p>
+<% end %>
