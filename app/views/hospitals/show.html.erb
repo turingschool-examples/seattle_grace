@@ -1,0 +1,5 @@
+<%= @hospital.name %>
+Number of Doctors at this Hospital: <%= @hospital.doctor_count %>
+<% @hospital.unique_unis.each do |uni_name| %>
+<%= uni_name %>
+<% end %>
