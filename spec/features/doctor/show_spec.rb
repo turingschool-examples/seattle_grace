@@ -14,6 +14,7 @@ describe 'As a visitor on the doctor show page' do
     expect(page).to have_content("Name: #{@doctor.name}")
     expect(page).to have_content("Specialty: #{@doctor.specialty}")
     expect(page).to have_content("Education: #{@doctor.university}")
+    expect(page).to have_content("Hospital: #{@doctor.hospital.name}")
   end
 
 end
