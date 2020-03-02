@@ -9,7 +9,6 @@ describe "Doctor's Show Page" do
       hospital_3 = Hospital.create!(name: "New York Hospital")
       hospital_4 = Hospital.create!(name: "Seattle Grace Hospital")
       doctor_1 = hospital_1.doctors.create!(name: "Meredith Grey", specialty: "General Surgery", university: "Harvard University")
-      doctor_1 = hospital_1.doctors.create!(name: "Meredith Grey", specialty: "General Surgery", university: "Harvard University")
       doctor_2 = hospital_2.doctors.create!(name: "Alex Karev", specialty: "Pediatric Surgery", university: "Johns Hopkins University")
       doctor_3 = hospital_3.doctors.create!(name: "Miranda Bailey", specialty: "General Surgery", university: "Stanford University")
       doctor_4 = hospital_4.doctors.create!(name: "Derek Webber", specialty: "Attending Surgeon", university: "University of Pennsylvania")
