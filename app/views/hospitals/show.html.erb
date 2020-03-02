@@ -3,3 +3,10 @@
 <section id='doctor_count'>
   <p>Number of Doctors: <%= @hospital.doctor_count %></p>
 </section>
+
+<section id='doctor_universities'>
+  <h3>Universities Represented Here</h3>
+  <% @hospital.university_list.each do |university| %>
+    <p><%= university %></p>
+  <% end %>
+</section>
