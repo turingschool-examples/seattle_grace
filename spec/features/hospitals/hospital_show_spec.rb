@@ -19,7 +19,7 @@ RSpec.describe 'As a Visitor' do
       # patient4 = doc2.patients.create!(name: "Donald Trump",
       # age: 76)
 
-      visit hospitals_path
+      visit hospital_path(@hosp1)
     end
 
     it 'I see hospital name' do
@@ -27,9 +27,7 @@ RSpec.describe 'As a Visitor' do
     end
 
     it 'I see the number of doctors working there' do
-      expect(page).to have_content(@doc1.name)
-      expect(page).to have_content(@doc2.name)
-      expect(page).to have_content(@doc3.name)
+      expect(page).to have_content("Doctors: 3")
     end
 
     it "I see a unique list of universities that this hospital's doctors attended" do
