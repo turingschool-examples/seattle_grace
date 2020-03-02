@@ -24,7 +24,7 @@ describe "I may remove a patient from a doctor" do
       expect(page).to have_content(patient_2.name)
       expect(page).to have_content(patient_3.name)
 
-      within "patient-#{patient_1.id}" do
+      within "#patient-#{patient_1.id}" do
         click_link "Remove From Caseload"
       end
 
@@ -33,7 +33,7 @@ describe "I may remove a patient from a doctor" do
       expect(page).to have_content(patient_2.name)
       expect(page).to have_content(patient_3.name)
 
-      within "patient-#{patient_2.id}" do
+      within "#patient-#{patient_2.id}" do
         click_link "Remove From Caseload"
       end
 
@@ -48,7 +48,6 @@ describe "I may remove a patient from a doctor" do
       expect(page).to have_content(patient_1.name)
       expect(page).to have_content(patient_2.name)
       expect(page).to have_content(patient_3.name)
-
     end
   end
 end
