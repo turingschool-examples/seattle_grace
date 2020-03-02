@@ -1,0 +1,8 @@
+<h1>Hospital Show Page</h1>
+
+<br><%= @hospital.name %></br>
+Number of Doctors: <%= @hospital.number_of_docs %><br></br>
+Unviersties attended:
+<% @uniq_doc_uni.each do |university| %>
+  <%= university %><br></br>
+<% end %>
