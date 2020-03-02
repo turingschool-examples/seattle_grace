@@ -1,0 +1,7 @@
+<h1>All Patients: </h1>
+
+<% @patients.order_by_age_from_oldest.each do |patient| %>
+  <section id='patient-<%= patient.id %>'>
+    <h3><%= patient.name %></h3>
+  </section>
+<% end %>
