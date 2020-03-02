@@ -85,9 +85,8 @@ RSpec.describe "as a visitor" do
       visit "/doctors/#{doctor1.id}"
 
       expect(page).to have_content(patient1.name)
-
       within "#patient-delete-#{patient1.id}" do
-        click_link "Delete Patient"
+        click_button "Delete Patient"
       end
 
       expect(current_path).to eq("/doctors/#{doctor1.id}")
