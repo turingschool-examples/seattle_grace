@@ -4,10 +4,10 @@ class Hospital <ApplicationRecord
   has_many :doctors
 
   def doctor_count
-    doctors.sum(:id).distinct
+    doctors.count(:id)
   end
 
   def universities
-    
+    doctors.select(:university).distinct.count
   end
 end

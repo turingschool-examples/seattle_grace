@@ -4,21 +4,29 @@ RSpec.describe 'As a vistor', type: :feature do
 
       hospital = Hospital.create(name: 'Seattle Grace')
 
-      doctor = hospital.doctors.create(name: 'Meredith Grey',
+      doctor1 = hospital.doctors.create(name: 'Meredith Grey',
                                        specialty: 'General Surgery',
                                        university: 'Harvard')
 
-      patient1 = doctor.patients.create(name: 'Jordan Williams',
+      doctor2 = hospital.doctors.create(name: 'Jordan Willimas',
+                                       specialty: 'General Surgery',
+                                       university: 'Harvard')
+
+      doctor3 = hospital.doctors.create(name: 'Barack Obama',
+                                       specialty: 'General Surgery',
+                                       university: 'Stanford')
+
+      patient1 = doctor1.patients.create(name: 'Jordan Williams',
                                         age: 37)
 
-      patient2 = doctor.patients.create(name: 'Meredith Williams',
+      patient2 = doctor2.patients.create(name: 'Meredith Williams',
                                         age: 38)
 
       visit hospital_path(hospital)
 
       expect(page).to have_content(hospital.name)
-      expect(page).to have_content(hospital.doctor_count)
-      expect(page).to have_content(hospital.universities)
+      expect(page).to have_content("Number of doctors: #{hospital.doctor_count}")
+      expect(page).to have_content("Universities represented: #{hospital.universities}")
     end
   end
 end

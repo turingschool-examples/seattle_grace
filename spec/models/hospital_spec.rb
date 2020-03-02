@@ -36,7 +36,11 @@ RSpec.describe Hospital, type: :model do
     end
 
     it 'doctor_count' do
-      expect(@hostpital.doctor_count).to eq(3)
+      expect(@hospital.doctor_count).to eq(3)
+    end
+
+    it 'universities' do
+      expect(@hospital.universities).to eq(2)
     end
   end
 end
