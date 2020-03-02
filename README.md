@@ -10,12 +10,6 @@ Please follow the setup directions below. Stories for the assessment will be sen
 
 
 
-hosp1 = Hospital.create!(name: "Mass General")
-
-doc1 = Doctor.create!(name: "Hawkeye", specialty: "Thorasic", university: "UMass")
---OR--
-doc1 = hosp1.doctors.create!(name: "Hawkeye", specialty: "Thorasic", university: "UMass")
-
 # BEM2 Final Technical Assessment
 ​
 ## Description
