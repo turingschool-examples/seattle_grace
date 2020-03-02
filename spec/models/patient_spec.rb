@@ -24,5 +24,9 @@ RSpec.describe Patient, method: :model do
 			expect(Patient.uniq_name_list).to eq([@danny.name, @denny.name, @katie.name, @rebecca.name, @zola.name])
 			expect(Patient.uniq_name_list).not_to eq([@denny.name, @danny.name, @rebecca.name, @katie.name, @zola.name])
 		end
+
+		it '.count' do
+			expect(Patient.count).to eq(5)
+		end
 	end
 end
