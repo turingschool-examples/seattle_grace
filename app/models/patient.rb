@@ -4,6 +4,6 @@ class Patient <ApplicationRecord
   has_many :doctors, through: :doctor_patients
 
   def self.oldest_to_youngest
-    self.order(age: :desc)
+    order(age: :desc)
   end
 end
