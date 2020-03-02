@@ -16,7 +16,7 @@ RSpec.describe 'As a visitor' do
       doctor1.patients << [patient1, patient3, patient4, patient5]
       doctor2.patients << [patient2, patient5]
 
-      visit doctor_path(doctor1.id)
+      visit doctor_path(doctor1)
 
       within("#patient-#{patient4.id}") { click_button ('Remove this patient') }
 
@@ -32,7 +32,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_css("#patient-#{patient1.id}")
       expect(page).to have_css("#patient-#{patient3.id}")
 
-      visit doctor_path(doctor2.id)
+      visit doctor_path(doctor2)
       expect(page).to have_css("#patient-#{patient2.id}")
       expect(page).to have_css("#patient-#{patient5.id}")
       expect(page).to_not have_css("#patient-#{patient1.id}")

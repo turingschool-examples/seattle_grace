@@ -17,7 +17,7 @@ RSpec.describe 'As a visitor' do
       doctor1.patients << [patient1, patient3, patient4]
       doctor2.patients << [patient2]
 
-      visit hospital_path(hospital1.id)
+      visit hospital_path(hospital1)
 
       within('#name') do
         expect(page).to have_content(hospital1.name)

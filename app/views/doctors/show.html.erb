@@ -6,7 +6,7 @@
   <h2>Patients</h2>
   <% @doctor.doctor_patients.each do |doctor_patient| %>
     <section id="patient-<%= doctor_patient.patient.id %>">
-      <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient.id), method: :delete %></p>
+      <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient), method: :delete %></p>
     </section>
   <% end %>
 </section>
