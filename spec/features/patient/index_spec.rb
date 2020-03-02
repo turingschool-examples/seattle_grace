@@ -62,6 +62,8 @@ RSpec.describe "as a visitor" do
       expect(page).to have_content(patient4.age)
       expect(page).to have_content(patient5.name)
       expect(page).to have_content(patient5.age)
+
+      expect page.body.index(patient5.name).should < page.body.index(patient4.name)
     end
   end
 end
