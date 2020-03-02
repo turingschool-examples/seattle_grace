@@ -18,18 +18,16 @@ describe "As a Visitor" do
       expect(page).to have_content(@hospital_1.name) 
 
       expect(page).to have_content("Number of Doctors: 4")  
-      save_and_open_page
     end
     
-    # it "I see a unique list of universities that this hospital's doctors attended" do 
-    #   visit "/doctors/#{@dr_1.id}"
+    it "I see a unique list of universities that this hospital's doctors attended" do 
+      visit "/hospitals/#{@hospital_1.id}"
+      save_and_open_page
+      expect(page).to have_content(@dr_1.university)  
+      expect(page).to have_content(@dr_2.university)  
+      expect(page).to have_content(@dr_4.university)  
     
-    #   expect(page).to have_content(@dr_1.university)  
-    #   expect(page).to have_content(@dr_2.university)  
-    #   expect(page).to have_content(@dr_3.university)  
-    #   expect(page).to have_content(@dr_4.university)  
-    
-    # end
+    end
   end
 end
 
