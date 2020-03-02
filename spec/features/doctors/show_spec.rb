@@ -9,7 +9,7 @@ RSpec.describe 'As a Visitor' do
 			@katie = Patient.create!(name: "Katie Bryce", age: 24)
 			@denny = Patient.create!(name: "Denny Duquette", age: 39)
 			@rebecca = Patient.create!(name: "Rebecca Pope", age: 32)
-			@zola = Patient.create!(name: "Zola  Shepherd", age: 2)
+			@zola = Patient.create!(name: "Zola Shepherd", age: 2)
 
 			@holly.patients << @zola
 			@holly.patients << @danny
