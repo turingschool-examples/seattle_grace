@@ -12,7 +12,7 @@ RSpec.describe Patient, type: :model do
   end
 
   describe "methods" do
-    it "oldest_youngest" do
+    it "#oldest_youngest" do
       pat1 = Patient.create(name: "Ben", age: 25)
       pat2 = Patient.create(name: "George", age: 40)
       pat3 = Patient.create(name: "Sally", age: 30)
