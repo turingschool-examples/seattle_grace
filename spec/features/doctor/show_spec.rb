@@ -40,14 +40,14 @@ describe "Doctor's Show Page" do
       expect(page).to have_content(doctor_1.name)
       expect(page).to have_content(doctor_1.specialty)
       expect(page).to have_content(doctor_1.university)
-      expect(page).to have_content(doctor_1.hospital)
+      expect(page).to have_content(doctor_1.hospital.name)
       expect(page).to have_content(patient_1.name)
       expect(page).to have_content(patient_2.name)
 
       expect(page).not_to have_content(doctor_2.name)
       expect(page).not_to have_content(doctor_4.specialty)
       expect(page).not_to have_content(doctor_3.university)
-      expect(page).not_to have_content(doctor_4.hospital)
+      expect(page).not_to have_content(doctor_4.hospital.name)
       expect(page).not_to have_content(patient_3.name)
       expect(page).not_to have_content(patient_4.name)
 
@@ -56,14 +56,14 @@ describe "Doctor's Show Page" do
       expect(page).to have_content(doctor_3.name)
       expect(page).to have_content(doctor_3.specialty)
       expect(page).to have_content(doctor_3.university)
-      expect(page).to have_content(doctor_3.hospital)
+      expect(page).to have_content(doctor_3.hospital.name)
       expect(page).to have_content(patient_3.name)
       expect(page).to have_content(patient_4.name)
 
       expect(page).not_to have_content(doctor_1.name)
       expect(page).not_to have_content(doctor_2.specialty)
       expect(page).not_to have_content(doctor_1.university)
-      expect(page).not_to have_content(doctor_4.hospital)
+      expect(page).not_to have_content(doctor_4.hospital.name)
       expect(page).not_to have_content(patient_1.name)
       expect(page).not_to have_content(patient_2.name)
     end
