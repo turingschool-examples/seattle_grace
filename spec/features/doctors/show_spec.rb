@@ -19,4 +19,21 @@ RSpec.describe 'As a visitor to doctor show page' do
     expect(page).to_not have_content(@patient3.name)
   end
 
+  it 'should allow patient to be deleted' do
+    visit "/doctors/#{@tron.id}"
+    expect(page).to have_content(@patient1.name)
+    expect(page).to have_content(@patient2.name)
+    expect(@tron.patients.count).to eq(2)
+
+    within "#patient-#{@patient1.id}" do
+      expect(page).to have_link("Remove Patient")
+      click_on "Remove Patient"
+    end
+
+    expect(current_path).to eq("/doctors/#{@tron.id}")
+    expect(page).to_not have_content(@patient1.name)
+    expect(page).to have_content(@patient2.name)
+    expect(@tron.patients.count).to eq(1)
+  end
+
 end
