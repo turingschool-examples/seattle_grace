@@ -54,5 +54,46 @@ RSpec.describe "as a visitor" do
       expect(page).to have_content("Lola")
       expect(page).to have_content("Ricky")
     end
+
+    it "I can see a link and delete patients from a doctor" do
+      hospital1 = Hospital.create!({name: "Cleveland Clinic"})
+
+      doctor1 = Doctor.create!({
+        name: "Alan Dreamy",
+        specialty: "Podiatry",
+        university: "Yale",
+        hospital_id: hospital1.id
+        })
+
+      patient1 = Patient.create!({
+        name: "Ricky",
+        age: 10
+        })
+
+      patient2 = Patient.create!({
+        name: "Lola",
+        age: 21
+        })
+      patient3 = Patient.create!({
+        name: "Jan",
+        age: 30
+        })
+
+      hospital1.doctors << [doctor1]
+      doctor1.patients << [patient1, patient2, patient3]
+
+      visit "/doctors/#{doctor1.id}"
+
+      expect(page).to have_content(patient1.name)
+
+      within "#patient-delete-#{patient1.id}" do
+        click_link "Delete Patient"
+      end
+
+      expect(current_path).to eq("/doctors/#{doctor1.id}")
+      expect(page).not_to have_content(patient1.name)
+      expect(page).to have_content(patient2.name)
+      expect(page).to have_content(patient3.name)
+    end
   end
 end
