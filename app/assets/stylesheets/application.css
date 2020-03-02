@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.patient {
+  border: solid;
+  border-width: 1px;
+}
