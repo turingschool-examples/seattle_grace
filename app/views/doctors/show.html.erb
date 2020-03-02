@@ -4,9 +4,13 @@
 <p id="hospital">Hospital: <%= @doctor.hospital.name %></p>
 <section id="patients">
   <h2>Patients</h2>
-  <% @doctor.doctor_patients.each do |doctor_patient| %>
-    <section class="patient" id="patient-<%= doctor_patient.patient.id %>">
-      <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient), method: :delete %></p>
-    </section><br>
+  <% unless @doctor.doctor_patients.empty? %>
+    <% @doctor.doctor_patients.each do |doctor_patient| %>
+      <section class="patient" id="patient-<%= doctor_patient.patient.id %>">
+        <p><%= doctor_patient.patient.name %> <%= button_to 'Remove this patient', doctor_patient_path(doctor_patient), method: :delete %></p>
+      </section><br>
+    <% end %>
+  <% else %>
+    <p>This doctor has no patients.</p>
   <% end %>
 </section>
