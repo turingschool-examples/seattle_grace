@@ -12,8 +12,9 @@ RSpec.describe 'As a visitor' do
       patient2 = Patient.create!(name: 'Denny Duquette', age: 39)
       patient3 = Patient.create!(name: 'Rebecca Pope', age: 32)
       patient4 = Patient.create!(name: 'Zola Shepherd', age: 2)
-      doctor1.patients << [patient1, patient3, patient4]
-      doctor2.patients << [patient2]
+      patient5 = Patient.create!(name: 'John Lennon', age: 79)
+      doctor1.patients << [patient1, patient3, patient4, patient5]
+      doctor2.patients << [patient2, patient5]
 
       visit doctor_path(doctor1.id)
 
@@ -37,7 +38,18 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content(patient1.name)
         expect(page).to have_content(patient3.name)
         expect(page).to have_content(patient4.name)
+        expect(page).to have_content(patient5.name)
         expect(page).to_not have_content(patient2.name)
+      end
+
+      visit doctor_path(doctor2.id)
+
+      within('#patients') do
+        expect(page).to_not have_content(patient1.name)
+        expect(page).to_not have_content(patient3.name)
+        expect(page).to_not have_content(patient4.name)
+        expect(page).to have_content(patient5.name)
+        expect(page).to have_content(patient2.name)
       end
     end
   end
