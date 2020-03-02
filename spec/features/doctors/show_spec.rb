@@ -19,22 +19,28 @@ RSpec.describe 'As a visitor' do
 
       visit doctor_path(doctor1.id)
 
-      expect(page).to have_content(doctor1.name)
-      expect(page).to have_content(doctor1.specialty)
-      expect(page).to have_content(doctor1.university)
-
-      expect(page).to_not have_content(doctor2.name)
-      expect(page).to_not have_content(doctor2.specialty)
-      expect(page).to_not have_content(doctor2.university)
-
-      expect(page).to have_content(hospital1.name)
-      expect(page).to_not have_content(hospital2.name)
-
-      expect(page).to have_content(patient1.name)
-      expect(page).to have_content(patient3.name)
-      expect(page).to have_content(patient4.name)
-
-      expect(page).to_not have_content(patient2.name)
+      within('#name') do
+        expect(page).to have_content(doctor1.name)
+        expect(page).to_not have_content(doctor2.name)
+      end
+      within('#specialty') do
+        expect(page).to have_content(doctor1.specialty)
+        expect(page).to_not have_content(doctor2.specialty)
+      end
+      within('#university') do
+        expect(page).to have_content(doctor1.university)
+        expect(page).to_not have_content(doctor2.university)
+      end
+      within('#hospital') do
+        expect(page).to have_content(hospital1.name)
+        expect(page).to_not have_content(hospital2.name)
+      end
+      within('#patients') do
+        expect(page).to have_content(patient1.name)
+        expect(page).to have_content(patient3.name)
+        expect(page).to have_content(patient4.name)
+        expect(page).to_not have_content(patient2.name)
+      end
     end
   end
 end
