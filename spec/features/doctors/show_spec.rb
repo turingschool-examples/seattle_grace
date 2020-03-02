@@ -30,16 +30,14 @@ describe "As a Visitor" do
 
   end 
   describe "When I visit a docto5's show page" do
-    
-  end
-  
-  it "Can see all of that doctor's information including:" do 
-    visit "/doctors/#{@dr_1.id}"
-
-    expect(page).to have_content(@dr_1.name)  
-    expect(page).to have_content(@dr_1.specialty)  
-    expect(page).to have_content(@dr_1.university)  
-    expect(page).to have_content(@hospital_1.name)  
+    it "Can see all of that doctor's information including:" do 
+      visit "/doctors/#{@dr_1.id}"
+      
+      expect(page).to have_content(@dr_1.name)  
+      expect(page).to have_content(@dr_1.specialty)  
+      expect(page).to have_content(@dr_1.university)  
+      expect(page).to have_content(@hospital_1.name)  
+    end
   end
 end
 

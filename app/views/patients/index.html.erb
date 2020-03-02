@@ -1,0 +1,13 @@
+<h1> All Patients </h1>
+
+<% @patients.each do |patient|%>
+  <section id="patient-<%= patient.id %>">
+    <p>Name: <%=patient.name%></p>
+    <p>Age: <%=patient.age%></p><br>
+  </section>
+<% end %>
+
+<h1> All Patients Ordered by Age </h1>
+  <% @patients.ages.each do |patient| %>
+    <li><%= "#{patient.name}, #{patient.age}"%></li>
+  <% end %>
