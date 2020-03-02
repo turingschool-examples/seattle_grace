@@ -7,5 +7,4 @@ class Doctor <ApplicationRecord
   def doctr_patient(doctor, patient)
      DoctorPatient.where(patient_id: "#{patient.id}").where(doctor_id: "#{doctor.id}").pluck(:id).first
   end
-
 end

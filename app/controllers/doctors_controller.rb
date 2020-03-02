@@ -10,7 +10,5 @@ class DoctorsController < ApplicationController
     doctor_patient = DoctorPatient.find(doctor.doctr_patient(doctor, patient))
     doctor_patient.destroy
     redirect_to "/doctors/#{doctor.id}"
-end
-
-
+  end
 end

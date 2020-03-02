@@ -1,8 +1,7 @@
-<h1>Hospital's Show Page</h1>
+<h1>Hospital's Show Page</h1><br>
 <h2><%= @hospital.name %></h2>
-<h4><%= @hospital.doctor_count %></h4>
-
-    <h2>Universities Represented:</h2>
-    <% @hospital.doctors.each do |doctor|%>
-      <%= doctor.university %>
-    <% end %>
+<h4><%= @hospital.doctor_count %></h4><br>
+<h2>Universities Represented:</h2>
+  <% @hospital.doctors.each do |doctor|%>
+    <%= doctor.university %>
+  <% end %>

@@ -1,9 +1,5 @@
-require 'rails_helper'
-
-
-
 describe "as a visitor" do
-  describe "at the doctor show page" do
+  describe "at the patient index page" do
     before :each do
       #hospitals
       @greysloan = Hospital.create!(name: "Grey Sloan Memorial Hospital")
@@ -26,37 +22,13 @@ describe "as a visitor" do
 
     end
 
-    it "can see all of the doctor's information" do
-      visit "/doctors/#{@merideth.id}"
+    it "can see all of the patient's ordered from young to old" do
+      visit "/patients"
 
-      expect(page).to have_content(@merideth.name)
-      expect(page).to have_content(@merideth.specialty)
-      expect(page).to have_content(@merideth.university)
-      expect(page).to have_content(@merideth.hospital.name)
-
-      within "#patient-#{@katie.id}" do
-        expect(page).to have_content(@katie.name)
-      end
-
-      within "#patient-#{@rebecca.id}" do
-        expect(page).to have_content(@rebecca.name)
-      end
-    end
-
-    it "can delete a patient from the doctor's caseload" do
-      visit "/doctors/#{@merideth.id}"
-
-      within "#patient-#{@katie.id}" do
-        expect(page).to have_content(@katie.name)
-      end
-
-      within "#patient-#{@rebecca.id}" do
-        expect(page).to have_content(@rebecca.name)
-        click_button "Remove Patient"
-      end
-
-      expect(page).to_not have_content(@rebecca.name)
+      expect(page).to have_content("\nZola Shepherd")
       expect(page).to have_content(@katie.name)
+      expect(page).to have_content(@rebecca.name)
+      expect(page).to have_content(@denny.name)
     end
   end
 end
