@@ -10,28 +10,23 @@
 # hospitals have many doctors
 # doctors belong to a hospital
 
+hos1 = Hospital.create(name: "St. Marry's") dr1
+hos2 = Hospital.create(name: "St. Joseph's") dr2
+hos3 = Hospital.create(name: "St. John's") dr3
 
-dr1 = Doctor.create(name: "Marry", specialty: "Brain Surgen", university: "DU")
-dr2 = Doctor.create(name: "Joseph", specialty: "NP", university: "CU")
-dr3 = Doctor.create(name: "Tom", specialty: "Liver", university: "CSU")
-dr4 = Doctor.create(name: "Matt", specialty: "Knee replacments", university: "ASU")
-dr5 = Doctor.create(name: "Zeke", specialty: "Eastern medicine", university: "community college")
-dr6 = Doctor.create(name: "Jordan", specialty: "herbal medicine", university: "ASU")
+dr1 = hos1.doctors.create(name: "Marry", specialty: "Brain Surgen", university: "DU")
+dr2 = hos2.doctors.create(name: "Joseph", specialty: "NP", university: "CU")
+dr3 = hos3.doctors.create(name: "Tom", specialty: "Liver", university: "CSU")
+dr4 = hos1.doctors.create(name: "Matt", specialty: "Knee replacments", university: "ASU")
+dr5 = hos2.doctors.create(name: "Zeke", specialty: "Eastern medicine", university: "community college")
+dr6 = hos3.doctors.create(name: "Jordan", specialty: "herbal medicine", university: "ASU")
 
-hos1 = dr1.hospitals.create(name: "St. Marry's")
-hos2 = dr2.hospitals.create(name: "St. Joseph's")
-hos3 = dr3.hospitals.create(name: "St. John's")
-
-hos1.doctors << dr4
-hos2.doctors << dr5
-hos3.doctors << dr6
-
-pat1 = Patient.create(name: "Ben", age: 25)
-pat2 = Patient.create(name: "George", age: 40)
-pat3 = Patient.create(name: "Sally", age: 30)
-pat4 = Patient.create(name: "Carl", age: 32)
-pat5 = Patient.create(name: "Ryan", age: 30)
-pat6 = Patient.create(name: "Joe", age: 45)
+pat1 = dr1.patients.create(name: "Ben", age: 25)
+pat2 = dr1.patients.create(name: "George", age: 40)
+pat3 = dr2.patients.create(name: "Sally", age: 30)
+pat4 = dr2.patients.create(name: "Carl", age: 32)
+pat5 = dr3.patients.create(name: "Ryan", age: 30)
+pat6 = dr4.patients.create(name: "Joe", age: 45)
 
 
 # creating a table
