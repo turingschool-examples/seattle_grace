@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200227164623) do
+ActiveRecord::Schema.define(version: 20200302160452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "doctor_patients", force: :cascade do |t|
+    t.bigint "doctors_id"
+    t.bigint "patients_id"
+    t.index ["doctors_id"], name: "index_doctor_patients_on_doctors_id"
+    t.index ["patients_id"], name: "index_doctor_patients_on_patients_id"
+  end
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
@@ -31,5 +38,14 @@ ActiveRecord::Schema.define(version: 20200227164623) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "patients", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "doctor_patients", "doctors", column: "doctors_id"
+  add_foreign_key "doctor_patients", "patients", column: "patients_id"
   add_foreign_key "doctors", "hospitals"
 end
