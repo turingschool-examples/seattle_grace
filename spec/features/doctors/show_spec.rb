@@ -28,11 +28,3 @@ RSpec.describe "Doctors show page", type: :feature do
     expect(page).to_not have_content(hospital_2.name)
   end
 end
-
-
-# I see all of that doctor's information including:
-#   - name
-#   - specialty
-#   - university where they got their doctorate
-# And I see the name of the hospital where this doctor works
-# And I see the names of all of the patients this doctor has
