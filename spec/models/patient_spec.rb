@@ -17,9 +17,8 @@ RSpec.describe Patient, type: :model do
       patient2 = Patient.create!(name: 'Tanner', age: 26)
       patient3 = Patient.create!(name: 'Kelly', age: 31)
       patients = [patient1, patient2, patient3]
-      binding.pry
 
-      expect(patients.order_age).to eq(['Kelly, Christian, Tanner'])
+      expect(Patient.give_age_order).to eq([patient3, patient1, patient2])
     end
   end
 end
