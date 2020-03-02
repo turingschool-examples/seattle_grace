@@ -3,5 +3,8 @@
 <%= @doctor.university %>
 <%= @doctor.hospital.name %>
 <% @doctor.patients.each do |patient| %>
+<section id= <%= "patient-#{patient.id}" %>>
 <%= patient.name %>
+<%= button_to "Delete Patient", "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :delete %>
+</section>
 <% end %>
