@@ -1,7 +1,5 @@
 <h1>All Patients<h1>
 
-<%num = 1%>
 <%@patients.each do |patient|%>
-  <%=num%>. <%=patient.name%><br>
-  <%num+= 1%>
+  <%=patient.name%><br>
 <%end%>
