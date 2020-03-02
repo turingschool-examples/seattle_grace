@@ -29,7 +29,7 @@ describe "As a Visitor" do
 
 
   end 
-  describe "When I visit a docto5's show page" do
+  describe "When I visit a doctor's show page" do
     it "Can see all of that doctor's information including:" do 
       visit "/doctors/#{@dr_1.id}"
       

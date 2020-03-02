@@ -15,7 +15,6 @@ describe "As a Visitor" do
 
       expect(page).to have_content(@patient_1.name)  
       expect(page).to have_content(@patient_1.age)  
-save_and_open_page
     end
   end
 end
