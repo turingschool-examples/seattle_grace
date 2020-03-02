@@ -39,6 +39,12 @@ describe 'As a visitor' do
         expect(page).to have_content("#{@katie.name}")
         expect(page).to_not have_content("#{@denny.name}")
       end
+      
+      visit ('/patients')
+      
+      within ("#patients") do
+        expect(page).to have_content("#{@denny.name}")
+      end
     end
   end
 end
