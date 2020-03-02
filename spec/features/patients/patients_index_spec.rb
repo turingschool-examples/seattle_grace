@@ -20,8 +20,8 @@ RSpec.describe 'As a Visitor' do
       visit patients_path
 
       expect(page).to have_content(patient1.name)
-      expect(page).to have_content(patient2.name)
       expect(page).to have_content(patient3.name)
+      expect(page).to have_content(patient2.name)
       expect(page).to have_content(patient4.name)
     end
   end
