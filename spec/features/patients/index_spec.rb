@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Patient Index Page" do
-  it "can see all patients" do
+  it "can see all patients from oldest to youngest" do
     hospital_1 = Hospital.create(name: "Seattle Grace Hospital")
     doctor_1 = Doctor.create(name: "Meredith Grey",
                             specialty: "General Surgery",
