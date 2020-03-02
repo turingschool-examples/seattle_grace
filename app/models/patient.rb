@@ -7,6 +7,4 @@ class Patient < ApplicationRecord
   def self.sorted_by_age
     all.order(:age)
   end
-
-
 end
