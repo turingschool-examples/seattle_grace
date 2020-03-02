@@ -4,4 +4,9 @@ class Patient < ApplicationRecord
 
         validates_presence_of :name
         validates_presence_of :age
+
+
+	def self.all_names_alpha
+		Patient.order(age: :desc).pluck(:name)
+	end
 end
