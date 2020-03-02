@@ -3,6 +3,6 @@ class Patient < ApplicationRecord
   has_many :doctors, through: :doctor_patients
 
   def self.by_age
-    order(:age)
+    order(:age).reverse_order.distinct
   end
 end

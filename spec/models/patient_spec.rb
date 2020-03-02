@@ -6,7 +6,7 @@ RSpec.describe Patient, type: :model do
     it {should have_many(:doctors).through(:doctor_patients)}
   end
 
-  describe "instance methods" do
+  describe "class methods" do
     it "#by_age" do
       hospital_1 = Hospital.create(name: "Seattle Grace Hospital")
       doctor_1 = Doctor.create(name: "Meredith Grey",
