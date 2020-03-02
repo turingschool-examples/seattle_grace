@@ -10,7 +10,7 @@ RSpec.describe 'Hospitals show page' do
     doctor3 = Doctor.create!(name: "Meredith Grey", specialty: "General Surgery", university: "Harvard University", hospital: hospital1)
     doctor4 = Doctor.create!(name: "Alex Karev", specialty: "Pediatric Surgery", university: "Johns Hopkins University", hospital: hospital1)
 
-    visit "hospitals/#{hospital1.id}"
+    visit hospital_path(hospital1.id)
 
     expect(page).to have_content('Sacred Heart')
     expect(page).to have_content('3 Doctors')

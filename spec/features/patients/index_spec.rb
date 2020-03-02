@@ -23,9 +23,5 @@ RSpec.describe 'Patients index page' do
     page.body.index('Denny Duquette').should < page.body.index('Rebecca Pope')
     page.body.index('Rebecca Pope').should < page.body.index('Katie Bryce')
     page.body.index('Katie Bryce').should < page.body.index('Zola Shepherd')
-    # expect(page).to have_content('1. Denny Duquette')
-    # expect(page).to have_content('2. Rebecca Pope')
-    # expect(page).to have_content('3. Katie Bryce')
-    # expect(page).to have_content('4. Zola Shepherd')
   end
 end

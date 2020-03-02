@@ -16,7 +16,7 @@ RSpec.describe 'Doctors show page' do
     doctor1.patients << patient2
     doctor2.patients << patient3
 
-    visit "/doctors/#{doctor1.id}"
+    visit doctor_path(doctor1.id)
 
     expect(page).to have_content("Turk")
     expect(page).to have_content("Surgery")
@@ -47,7 +47,7 @@ RSpec.describe 'Doctors show page' do
     doctor1.patients << patient2
     doctor2.patients << patient3
 
-    visit "/doctors/#{doctor1.id}"
+    visit doctor_path(doctor1.id)
 
     within "#patient-#{patient1.id}" do
       expect(page).to have_button("Remove Patient")
@@ -61,7 +61,7 @@ RSpec.describe 'Doctors show page' do
       click_button ("Remove Patient")
     end
 
-    expect(current_path).to eq("/doctors/#{doctor1.id}")
+    expect(current_path).to eq(doctor_path(doctor1.id))
 
     expect(page).to_not have_content("Rebecca Pope")
     expect(page).to_not have_content("Denny Duquette")
