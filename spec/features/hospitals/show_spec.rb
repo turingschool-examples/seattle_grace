@@ -12,6 +12,7 @@ describe "Hospital Show Page" do
       doctor_4 = hospital_2.doctors.create!(name: "Derek Webber", specialty: "Attending Surgeon", university: "University of Pennsylvania")
       doctor_5 = hospital_2.doctors.create!(name: "James McGraph", specialty: "Some Doctor Dude", university: "University of Docs")
       doctor_6 = hospital_2.doctors.create!(name: "Sara McGraph", specialty: "Some Doctor Chick", university: "University of Docs")
+      doctor_7 = hospital_2.doctors.create!(name: "Filler McDoctor", specialty: "Helping My Tests Work", university: "Helpers College")
 
       visit "/hospitals/#{hospital_1.id}"
 
@@ -22,7 +23,7 @@ describe "Hospital Show Page" do
       expect(page).to have_content(doctor_3.university)
 
       expect(page).not_to have_content(hospital_2.name)
-      expect(page).not_to have_content("Doctors At Hospital: 3")
+      expect(page).not_to have_content("Doctors At Hospital: 4")
       expect(page).not_to have_content(doctor_4.university)
       expect(page).not_to have_content(doctor_5.university)
       expect(page).not_to have_content(doctor_6.university)
@@ -30,9 +31,10 @@ describe "Hospital Show Page" do
       visit "/hospitals/#{hospital_2.id}"
 
       expect(page).to have_content(hospital_2.name)
-      expect(page).to have_content("Doctors At Hospital: 3")
+      expect(page).to have_content("Doctors At Hospital: 4")
       expect(page).to have_content(doctor_4.university)
       expect(page).to have_content(doctor_5.university)
+      expect(page).to have_content(doctor_7.university)
 
       expect(page).not_to have_content(hospital_1.name)
       expect(page).not_to have_content("Doctors At Hospital: 3")
