@@ -1,0 +1,7 @@
+<div class="patientsIndexContainer">
+  <% @patients.each do |patient| %>
+    <section id="patient-<%= patient.id %>">
+      <p><%= patient.name %></p>
+    </section>
+  <% end %>
+</div>
