@@ -1,0 +1,5 @@
+<h1> Welcome to Patients Index Page</h1>
+<h2> Below is all patients ordered by age </h2>
+<p> <% @patients.old_to_young.each do |patient| %> </p>
+<p> <%= patient.name %> </p> <br>
+<% end %>
