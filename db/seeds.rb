@@ -13,23 +13,30 @@ meredith = Doctor.create(name: 'Meredith Grey',
                          university: 'Harvard University',
                          hospital: seattle_grace,
                          patients: [denny, katie])
-#
-# Name: Meredith Grey
-# Specialty: General Surgery
-# Education: Harvard University
-#
-# Name: Alex Karev
-# Specialty: Pediatric Surgery
-# Education: Johns Hopkins University
-#
-# Name: Miranda Bailey
-# Specialty: General Surgery
-# Education: Stanford University
-#
-# Name: Derek Webber
-# Specialty: Attending Surgeon
-# Education: University of Pennsylvania
-#
+
+karev = Doctor.create(name: 'Alex Karev',
+                        specialty: 'Pediatric Surgery',
+                        university: 'Johns Hopkins University',
+                        hospital: seattle_grace,
+                        patients: [denny, katie])
+
+miranda = Doctor.create(name: 'Miranda Bailey',
+                        specialty: 'General Surgery',
+                        university: 'Stanford University',
+                        hospital: seattle_grace,
+                        patients: [denny, katie])
+
+derek = Doctor.create(name: 'Derek Webber',
+                        specialty: 'Attending Surgeon',
+                        university: 'University of Pennsylvania',
+                        hospital: seattle_grace,
+                        patients: [denny, katie])
+
+christina = Doctor.create(name: 'Christina Yang',
+                       specialty: 'Cardiothoracic Surgery',
+                       university: 'Stanford University',
+                       hospital: seattle_grace,
+                       patients: [denny, katie])
 #
 # Hospitals:
 seattle_grace = Hospital.create(name: 'Seattle Grace Hospital')
