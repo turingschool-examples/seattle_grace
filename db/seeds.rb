@@ -47,7 +47,7 @@ patient_1 = Patient.create!(
   )
 
 patient_2 = Patient.create!(
-    name: "Denny",
+    name: "Denny Smith",
     age: 39,
   )
 
