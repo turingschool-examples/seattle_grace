@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Doctors show page' do
-  it 'When I visit the doctors show page I see the following info' do
+  describe 'When I visit the doctors show page I see' do
+    it 'the doctors name, specialty, university, hospital and all their patients' do
     hospital1 = Hospital.create!(name: "Sacred Heart")
     hospital2 = Hospital.create!(name: "Pacific Northwest General Hospital")
 
@@ -31,8 +32,10 @@ RSpec.describe 'Doctors show page' do
     expect(page).to_not have_content("Pacific Northwest General Hospital")
     expect(page).to_not have_content("Denny Duquette")
   end
+end
 
-  it 'A patient can be removed from a doctors workload' do
+  describe 'A patient can be removed from a doctors workload' do
+    it 'has a button to remove the patient from the doctors list of patients' do
     hospital1 = Hospital.create!(name: "Sacred Heart")
     hospital2 = Hospital.create!(name: "Pacific Northwest General Hospital")
 
@@ -66,5 +69,6 @@ RSpec.describe 'Doctors show page' do
     expect(page).to_not have_content("Rebecca Pope")
     expect(page).to_not have_content("Denny Duquette")
     expect(page).to have_content("Zola Shepherd")
+    end
   end
 end

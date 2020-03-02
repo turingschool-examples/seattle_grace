@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Hospitals show page' do
-  it 'When I visit the hospitals show page I see the following info' do
+  describe 'When I visit the hospitals show page I see the following info' do
+    it 'The hospitals name, amount of doctors and unique universities its doctors attended' do
     hospital1 = Hospital.create!(name: "Sacred Heart")
     hospital2 = Hospital.create!(name: "Pacific Northwest General Hospital")
 
@@ -19,5 +20,6 @@ RSpec.describe 'Hospitals show page' do
 
     expect(page).to_not have_content('Pacific Northwest General Hospital')
     expect(page).to_not have_content('New Jersey University')
+    end
   end
 end
