@@ -36,14 +36,3 @@ describe "as a visitor" do
     end
   end
 end
-
-
-
-# User Story 4, Remove a Patient from a Doctor
-# ​
-# As a visitor
-# When I visit a Doctor's show page
-# Next to each patient's name, I see a button to remove that patient from that doctor's caseload
-# When I click that button for one patient
-# I'm brought back to the Doctor's show page
-# And I no longer see that patient's name listed
