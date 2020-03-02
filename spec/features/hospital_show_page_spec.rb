@@ -11,7 +11,6 @@ RSpec.describe 'As a visitor' do
       doctor4 = hospital2.doctors.create!(name: 'Larry', specialty: 'Life', university: 'Stanford')
 
       visit "/hospitals/#{hospital2.id}"
-      save_and_open_page
       expect(page).to have_content('Hospital in Boulder')
       expect(page).to_not have_content('Hospital in Denver')
       expect(page).to_not have_content('John')

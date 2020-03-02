@@ -16,5 +16,13 @@ RSpec.describe Hospital, type: :model do
 
       expect(hospital2.docs_university).to eq(['Stanford', 'Yale'])
     end
+    it 'should give count of doctors at hospital' do
+      hospital2 = Hospital.create!(name: 'Hospital in Boulder')
+      doctor2 = hospital2.doctors.create!(name: 'Steve', specialty: 'Adults', university: 'Yale')
+      doctor3 = hospital2.doctors.create!(name: 'Chris', specialty: 'Children', university: 'Yale')
+      doctor4 = hospital2.doctors.create!(name: 'Larry', specialty: 'Life', university: 'Stanford')
+
+      expect(hospital2.number_of_docs).to eq(3)
+    end
   end
 end
