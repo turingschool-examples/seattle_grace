@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/doctors/:doctor_id", to: "doctors#show"
+  resources :doctors, only: [:show]
+  patch "/doctors/:doctor_id/:patient_id/edit", to: "doctors#update"
 
-  get "/patients", to: "patients#index"
-
-  get "/hospitals/:hospital_id", to: "hospitals#show"
+  resources :patients, only: [:index]
+  resources :hospitals, only: [:show]
 end

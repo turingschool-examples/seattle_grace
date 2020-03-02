@@ -29,4 +29,19 @@ RSpec.describe 'doctors show page', type: :feature do
     expect(page).to have_content(@pat2.name)
     expect(page).to_not have_content(@pat3.name)
   end
+
+  it "has button to remove patient by every one" do
+    within "#patient-#{@pat1.id}" do
+      has_link? "Remove"
+    end
+
+    within "#patient-#{@pat2.id}" do
+      click_link "Remove"
+      expect(current_path).to eq("/doctors/#{@dr1.id}")
+    end
+
+    expect(page).to have_content(@pat1.name)
+    expect(page).to_not have_content(@pat2.name)
+    expect(page).to_not have_content(@pat3.name)
+  end
 end

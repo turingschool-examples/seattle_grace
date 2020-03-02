@@ -7,5 +7,8 @@
 
 <h2>Patients: </h2>
 <% @doctor.patients.each do |patient| %>
-  <p><%= patient.name %></p>
+  <section id="patient-<%= patient.id %>">
+    <p><%= patient.name %></p>
+    <%= link_to "Remove", "/doctors/#{@doctor.id}/#{patient.id}/edit", method: :patch %>
+  </section>
 <% end %>
