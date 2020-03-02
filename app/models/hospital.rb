@@ -7,7 +7,6 @@ class Hospital <ApplicationRecord
   end
 
   def educations
-    # doctors.map {|doctor| doctor.education}.uniq
     doctors.distinct.pluck(:university)
   end
 end
