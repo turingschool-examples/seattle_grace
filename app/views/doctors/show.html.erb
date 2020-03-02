@@ -1,9 +1,9 @@
-<h1>Name: <%=@doctor.name%></h1>
-<p>Specialty: <%=@doctor.specialty%></p>
-<p>University: <%=@doctor.university%></p>
-<p>Hospital: <%=@doctor.hospital.name%></p>
+<h1>Name: <%=@doctor.name%></h1><br>
+<p>Specialty: <%=@doctor.specialty%></p><br>
+<p>University: <%=@doctor.university%></p><br>
+<p>Hospital: <%=@doctor.hospital.name%></p><br><br><br>
 <p>Current Patients:
   <%@doctor.patients.each do |patient|%>
-    Name: <%=patient.name%>
+    Name: <%=patient.name%><br>
   <%end%>
 </p>
