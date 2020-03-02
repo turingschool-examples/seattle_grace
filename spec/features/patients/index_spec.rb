@@ -17,9 +17,15 @@ RSpec.describe 'As a visitor' do
 
       visit patients_path
 
-      expected = "#{patient2.name}\n#{patient3.name}\n#{patient1.name}\n#{patient4.name}"
+      expected_order = "All Patients\n#{patient2.name}\n#{patient3.name}\n#{patient1.name}\n#{patient4.name}"
 
-      expect(page).to have_content(expected)
+      expect(page).to have_content(patient1.name, count: 1)
+      expect(page).to have_content(patient2.name, count: 1)
+      expect(page).to have_content(patient3.name, count: 1)
+      expect(page).to have_content(patient4.name, count: 1)
+
+      expect(page).to have_content(expected_order)
+      expect(page).to_not have_content("#{patient4.name}\n")
     end
   end
 end
