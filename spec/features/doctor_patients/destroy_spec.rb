@@ -21,7 +21,7 @@ RSpec.describe "on a doctor's show page" do
       expect(page).to have_button("Remove Patient")
     end
 
-    it "can remove a patient that doctor's caseload" do
+    it "can remove a patient from that doctor's caseload" do
       visit "/doctors/#{@doctor_2.id}"
       expect(page).to have_content(@patient_2.name)
 
@@ -31,10 +31,16 @@ RSpec.describe "on a doctor's show page" do
       expect(page).to_not have_content(@patient_2.name)
     end
 
-    it "can remove a patient that doctor's caseload" do
+    it "can remove a patient from that doctor's caseload" do
       visit "/doctors/#{@doctor_1.id}"
+
       expect(page).to have_content(@patient_1.name)
       expect(page).to have_content(@patient_3.name)
+      expect(page).to_not have_content(@patient_2.name)
+
+      within("#patients-#{@patient_3.id}") do
+        expect(page).to have_button("Remove Patient")
+      end
 
       within("#patients-#{@patient_1.id}") do
         within("#patient_delete-#{@patient_1.id}") do
@@ -43,6 +49,9 @@ RSpec.describe "on a doctor's show page" do
       end
 
       visit "/doctors/#{@doctor_1.id}"
+
+      expect(page).to_not have_content(@patient_1.name)
+      expect(page).to have_content(@patient_3.name)
       expect(page).to_not have_content(@patient_2.name)
     end
   end
