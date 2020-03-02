@@ -1,0 +1,9 @@
+<div class="doctorShowContainer">
+  <h1><%= @doctor.name %></h1>
+  <h3><%= @doctor.hospital.name  %></h3>
+  <p><%= @doctor.specialty %></p>
+  <p><%= @doctor.university %></p>
+  <% @doctor.patients.each do |patient| %>
+    <p><%= patient.name %></p>
+  <% end %>
+</div>
