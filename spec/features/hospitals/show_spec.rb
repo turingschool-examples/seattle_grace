@@ -1,6 +1,6 @@
-RSpec.describe 'As a visitor', type: :feature do
-  describe 'When I visit the patients index page' do
-    it 'I can see the names of all patients, youngest to oldest' do
+RSpec.describe 'As a vistor', type: :feature do
+  describe "When I visit a hospital's show page" do
+    it "I see the hospital's data" do
 
       hospital = Hospital.create(name: 'Seattle Grace')
 
@@ -14,15 +14,11 @@ RSpec.describe 'As a visitor', type: :feature do
       patient2 = doctor.patients.create(name: 'Meredith Williams',
                                         age: 38)
 
-      visit patients_path
+      visit hospital_path(hospital)
 
-      within("#patient-#{patient1.id}") do
-        expect(page).to have_content(patient1.name)
-      end
-
-      within("#patient-#{patient2.id}") do
-        expect(page).to have_content(patient2.name)
-      end
+      expect(page).to have_content(hospital.name)
+      expect(page).to have_content(hospital.doctor_count)
+      expect(page).to have_content(hospital.universities)
     end
   end
 end
