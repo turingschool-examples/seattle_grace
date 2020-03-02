@@ -2,10 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor" do
   before :each do
+    @grey_hospital = Hospital.create(name: "Grey Sloan Memorial Hospital")
+    @meredith = @grey_hospital.doctors.create(name: "Meredith Grey", specialty: "General Surgery", university: "Harvard University")
 
-    @abby = Patient.create(name: "Abby Gallant", age: 32)
-    @brooke = Patient.create(name: "Brooke Webb", age: 33)
-    @kayla = Patient.create(name: "Kayla Clark", age: 34)
+    @abby = @meredith.patients.create(name: "Abby Gallant", age: 32)
+    @brooke = @meredith.patients.create(name: "Brooke Webb", age: 33)
+    @kayla = @meredith.patients.create(name: "Kayla Clark", age: 34)
+
+    @patients = @meredith.patients
 
     visit "/patients"
   end
@@ -23,6 +27,8 @@ RSpec.describe "As a visitor" do
     within"#patient-#{@kayla.id}" do
       expect(page).to have_content(@kayla.name)
     end
+    expect(@patients.order_by_age_from_oldest.first).to eq(@kayla)
+    expect(@patients.order_by_age_from_oldest.last).to eq(@abby)
   end
 end
 
