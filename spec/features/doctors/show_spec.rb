@@ -37,7 +37,7 @@ RSpec.describe "As a visitor " , type: :feature do
 
     end
 
-    it "I can delete a patient from the doctor's caseload" do 
+    it "I can delete a patient from the doctor's caseload (without deleting the patient)" do 
       
       visit "/doctors/#{@doctor1.id}"
 
