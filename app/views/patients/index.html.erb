@@ -1,0 +1,5 @@
+<h2>Patients</h2>
+
+<% @patients.order(age: :DESC).each do |patient| %>
+  <p><%= "#{patient.name}, #{patient.age}" %></p>
+<% end %>
