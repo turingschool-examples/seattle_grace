@@ -17,7 +17,7 @@ RSpec.describe 'As a visitor' do
       doctor1.patients << [patient1, patient3, patient4]
       doctor2.patients << [patient2]
 
-      visit "/doctors/#{doctor1.id}"
+      visit doctor_path(doctor1.id)
 
       expect(page).to have_content(doctor1.name)
       expect(page).to have_content(doctor1.specialty)
