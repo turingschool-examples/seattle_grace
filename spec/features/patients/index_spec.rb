@@ -18,10 +18,14 @@ describe 'As a visitor' do
       expect(page).to have_content("Patients (oldest to youngest):")
       
       within ("#patients") do
-        expect(page).to have_content("#{@denny.name}: #{@denny.age}")
-        expect(page).to have_content("#{@rebecca.name}: #{@rebecca.age}")
-        expect(page).to have_content("#{@katie.name}: #{@katie.age}")
-        expect(page).to have_content("#{@zola.name}: #{@zola.age}")
+        denny_info = "#{@denny.name}: #{@denny.age}"
+        rebecca_info = "#{@rebecca.name}: #{@rebecca.age}"
+        katie_info = "#{@katie.name}: #{@katie.age}"
+        zola_info = "#{@zola.name}: #{@zola.age}"
+        
+        expect(denny_info).to appear_before(rebecca_info)
+        expect(rebecca_info).to appear_before(katie_info)
+        expect(katie_info).to appear_before(zola_info)
       end
     end
   end
