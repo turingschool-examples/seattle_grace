@@ -44,13 +44,16 @@ RSpec.describe "As a visitor " , type: :feature do
       within("div#patient-#{@patient3.id}") do 
         expect(page).to have_content(@patient3.name)
       end
-      
+
       within("div#patient-#{@patient1.id}") do 
         click_link("Delete")
       end
 
       expect(current_path).to eq("/doctors/#{@doctor1.id}")
       expect(page).to_not have_content(@patient1.name)
+
+      visit "/patients"
+      expect(page).to have_content(@patient1.name)
 
     end
 
