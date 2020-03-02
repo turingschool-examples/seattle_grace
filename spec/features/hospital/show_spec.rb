@@ -24,7 +24,7 @@ describe "as a visitor" do
 
     end
 
-    it "can see all of the doctor's information" do
+    it "can see all of the hospital's information" do
       visit "/hospitals/#{@seattle.id}"
 
       expect(page).to have_content(@seattle.name)
