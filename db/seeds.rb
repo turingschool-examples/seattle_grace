@@ -21,3 +21,21 @@ doctor6 = Doctor.create(name: "Conner", specialty: "General Medicin", university
 doctor7 = Doctor.create(name: "Ian", specialty: "Gastro", university: "Oregon University", hospital: hospital3)
 doctor8 = Doctor.create(name: "Katie", specialty: "Bones", university: "San Francisco University", hospital: hospital3)
 doctor9 = Doctor.create(name: "James", specialty: "Spit", university: "Unhappy University", hospital: hospital3)
+
+patient1 = Patient.create!(name: 'Zola  Shepherd', age: 2)
+
+patient2 = Patient.create!(name: 'Rebecca Pope', age: 32)
+patient3 = Patient.create!(name: 'Denny Duquette', age: 39)
+patient4 = Patient.create!(name: 'Katie Bryce', age: 24)
+
+doctor1.patients << patient1
+doctor1.patients << patient2
+
+doctor2.patients << patient3
+doctor2.patients << patient4
+
+doctor3.patients << patient1
+doctor3.patients << patient2
+
+doctor4.patients << patient3
+doctor4.patients << patient4
