@@ -8,5 +8,4 @@ class Patient < ApplicationRecord
   def self.old_to_young
     order("age desc")
   end
-
 end
