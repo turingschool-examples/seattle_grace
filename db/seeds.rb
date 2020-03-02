@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Patient.destroy_all 
+Patient.destroy_all
 Doctor.destroy_all
 Hospital.destroy_all
 
@@ -36,3 +36,8 @@ Hospital.destroy_all
 @denny = Patient.create!(name: "Denny Duquette", age: 39)
 @rebecca = Patient.create!(name: "Rebecca Pope", age: 32)
 @zola = Patient.create!(name: "Zola  Shepherd", age: 2)
+
+@phil.patients << @danny
+@phil.patients << @denny
+@phil.patients << @katie
+@phil.patients << @zola
