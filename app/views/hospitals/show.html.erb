@@ -1,2 +1,6 @@
 <%= @hospital.name %>
 Total Doctors: <%= @hospital.total_doctors %>
+
+<% @hospital.doctors.each do |doctor| %>
+<%= doctor.university %>
+<% end.uniq %>
