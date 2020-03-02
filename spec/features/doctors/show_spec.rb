@@ -2,13 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'As a VISITOR' do
   before :each do
-    @doc_1 = Doctor.create! { name: 'Meredith Grey', specialty: 'General Surgery', education: 'Harvard University' }
-    @doc_2 = Doctor.create! { name: 'Alex Karev', specialty: 'Pediatric Surgery', education: 'Johns Hopkins University' }
-
-    @doc_1.patients.create! { name: 'Katie Bryce', age: 24 }
-    @doc_1.patients.create! { name: 'Denny Duquette', age: 39 }
-    @doc_2.patients.create! { name: 'Rebecca Pope', age: 32 }
-
+    @doc_1 = Doctor.create!{ name: 'Meredith Grey', specialty: 'General Surgery', education: 'Harvard University' }
+    @doc_2 = Doctor.create!{ name: 'Alex Karev', specialty: 'Pediatric Surgery', education: 'Johns Hopkins University' }
   end
 
   describe 'when I visit a SHOW PAGE' do
