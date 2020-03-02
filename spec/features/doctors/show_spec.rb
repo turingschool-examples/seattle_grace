@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   describe 'from the doctor show page' do
     it "I see all of that doctor's information and that doctor's patients" do
       hospital1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   describe 'from the doctor show page' do
     it "I see remove a patient from a doctor's caseload" do
       hospital1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')

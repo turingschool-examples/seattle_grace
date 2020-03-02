@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'As a visitor' do
+RSpec.describe 'As a visitor', type: :feature do
   describe 'from the patients index page' do
     it "I see a list of patients names sorted by age" do
       hospital1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')
