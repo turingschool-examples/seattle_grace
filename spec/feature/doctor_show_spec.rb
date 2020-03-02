@@ -11,7 +11,7 @@ RSpec.describe 'as a visitor', type: :feature do
       pt2 = dr1.patients.create!(name: "Zeke", age: 20)
       pt3 = dr2.patients.create!(name: "Meg", age: 20)
 
-      visit "doctors/#{dr1.id}"
+      visit "/doctors/#{dr1.id}"
       expect(page).to have_content(dr1.name)
       expect(page).to have_content(dr1.specialty)
       expect(page).to have_content(dr1.university)
