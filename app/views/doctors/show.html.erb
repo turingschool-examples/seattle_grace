@@ -4,6 +4,9 @@
 <p>Hospital: <%=@doctor.hospital.name%></p><br><br><br>
 <p>Current Patients:
   <%@doctor.patients.each do |patient|%>
-    Name: <%=patient.name%><br>
+    <section id="patient-<%= patient.id %>">
+      Name: <%=patient.name%><br>
+      <%= button_to "Remove Patient", doctor_patient_path(patient.find_patient_doctor(@doctor).id), method: :delete %>
+    </section>
   <%end%>
 </p>
