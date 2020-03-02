@@ -7,7 +7,7 @@ RSpec.describe 'As a visitor', type: :feature do
       hospital2 = Hospital.create!(name: 'Pacific Northwest General Hospital')
       doctor1 = Doctor.create!(name: 'Meredith Grey', specialty: 'General Surgery', university: 'Harvard University', hospital: hospital1)
       doctor2 = Doctor.create!(name: 'Alex Karev', specialty: 'Pediatric Surgery', university: 'Johns Hopkins University', hospital: hospital1)
-      Doctor.create!(name: 'Miranda Bailey', specialty: 'General Surgery', university: 'Stanford University', hospital: hospital2)
+      doctor3 = Doctor.create!(name: 'Miranda Bailey', specialty: 'General Surgery', university: 'Stanford University', hospital: hospital2)
       patient1 = Patient.create!(name: 'Katie Bryce', age: 24)
       patient2 = Patient.create!(name: 'Denny Duquette', age: 39)
       patient3 = Patient.create!(name: 'Rebecca Pope', age: 32)
@@ -50,6 +50,17 @@ RSpec.describe 'As a visitor', type: :feature do
         expect(page).to_not have_content(patient4.name)
         expect(page).to have_content(patient5.name)
         expect(page).to have_content(patient2.name)
+      end
+
+      visit doctor_path(doctor3)
+
+      within('#patients') do
+        expect(page).to_not have_content(patient1.name)
+        expect(page).to_not have_content(patient2.name)
+        expect(page).to_not have_content(patient3.name)
+        expect(page).to_not have_content(patient4.name)
+        expect(page).to_not have_content(patient5.name)
+        expect(page).to have_content('This doctor has no patients.')
       end
     end
   end
