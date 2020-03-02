@@ -14,12 +14,10 @@ RSpec.describe "Patients index page", type: :feature do
 
     visit "/patients"
 
+    save_and_open_page
+
+
     page.body.index(patient_3.name).should < page.body.index(patient_1.name)
     page.body.index(patient_1.name).should < page.body.index(patient_2.name)
-
-    # patient_3.name.appears_before(patient_1.name)
-    # patient_1.name.appears_before(patient_2.name)
   end
 end
-# When I visit the patient index page
-# I see the names of all patients listed from oldest to youngest
