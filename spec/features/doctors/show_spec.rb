@@ -31,7 +31,9 @@ RSpec.describe "on the show page", type: :feature do
       patient_1 = Patient.create(name: "Katie Bryce", age: "24")
       patient_2 = Patient.create(name: "Denny Duquette", age: "39")
       DoctorPatient.create(doctor: doctor_1, patient: patient_1)
+      DoctorPatient.create(doctor: doctor_2, patient: patient_1)
       DoctorPatient.create(doctor: doctor_1, patient: patient_2)
+      DoctorPatient.create(doctor: doctor_2, patient: patient_2)
 
       visit "/doctors/#{doctor_1.id}"
 
@@ -50,6 +52,10 @@ RSpec.describe "on the show page", type: :feature do
       expect(page).to_not have_content(patient_1.name)
       expect(page).to have_content(patient_2.name)
 
+      visit "/doctors/#{doctor_2.id}"
+
+      expect(page).to have_content(patient_1.name)
+      expect(page).to have_content(patient_2.name)
     end
   end
 end
