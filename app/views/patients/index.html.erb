@@ -1,0 +1,12 @@
+<h1>All Patients</h1>
+
+<ul>
+<% @patients.sorted.each do |patient| %>
+  <section id = "patients-<%= patient.id %>">
+    <li>
+      <p><%= patient.name %></p>
+      <p>Age: <%= patient.age %></p>
+    </li>
+  </section>
+<% end %>
+</ul>
