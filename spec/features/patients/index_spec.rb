@@ -31,9 +31,3 @@ RSpec.describe "As a visitor" do
     expect(@patients.order_by_age_from_oldest.last).to eq(@abby)
   end
 end
-
-# User Story 2, Patient Index Page
-# ​
-# As a visitor
-# When I visit the patient index page
-# I see the names of all patients listed from oldest to youngest
