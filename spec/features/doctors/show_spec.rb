@@ -16,6 +16,7 @@ RSpec.describe 'Doctor Show Page', type: :feature do
 
     DoctorPatient.create!(doctor: @doctor_1, patient: @patient_1)
     DoctorPatient.create!(doctor: @doctor_1, patient: @patient_3)
+    DoctorPatient.create!(doctor: @doctor_2, patient: @patient_3)
   end
 
   it 'should show name, specialty, university, hospital employeed at, and all patients for this doctor' do
@@ -26,12 +27,43 @@ RSpec.describe 'Doctor Show Page', type: :feature do
     expect(page).to have_content("University: Harvard University")
     expect(page).to have_content("Practices at Grey Sloan Memorial Hospital")
 
-    within "#patients" do
+    within "#patients-#{@patient_1.id}" do
       expect(page).to have_content("Katie Bryce")
+    end
+      
+
+    within "#patients-#{@patient_3.id}" do
       expect(page).to have_content("Rebecca Page")
-      expect(page).not_to have_content("Denny Duquette")
-      expect(page).not_to have_content("Zola Shephard")
     end
 
+    expect(page).not_to have_content("Denny Duquette")
+    expect(page).not_to have_content("Zola Shephard")
+  end
+
+  it 'should show a remove patient button next to each patient' do
+    visit "/doctors/#{@doctor_1.id}"
+
+
+    within "#patients-#{@patient_1.id}" do
+      expect(page).to have_content("Katie Bryce")
+      expect(page).to have_link("Remove Patient")
+    end
+
+    within "#patients-#{@patient_3.id}" do
+      click_on "Remove Patient"
+    end
+
+    expect(current_path).to eq("/doctors/#{@doctor_1.id}")
+    expect(page).not_to have_content("Denny Duquette")
+    expect(page).not_to have_content("Zola Shephard")
+    expect(page).not_to have_content("Rebecca Page")
+
+    ## Additional Test to visit a different doctor to make sure their patient association wasn't removed as well
+
+    visit "/doctors/#{@doctor_2.id}"
+
+    within "#patients-#{@patient_3.id}" do
+      expect(page).to have_content("Rebecca Page")
+    end
   end
 end

@@ -10,7 +10,7 @@ RSpec.describe 'Doctor Show Page', type: :feature do
     @doctor_4 = @hospital2.doctors.create!(name: "Derek Webber", specialty: "Attending Surgeon", university: "University of Pennsylvania")
 
     # Additional Doctor with same university to test uniqiness
-    @doctor_5 = @hospital.doctors.create!(name: "Miranda Bailey", specialty: "General Surgery", university: "Stanford University")
+    @doctor_5 = @hospital.doctors.create!(name: "Miranda Bailey Clone", specialty: "General Surgery", university: "Stanford University")
 
     @patient_1 = Patient.create!(name: "Katie Bryce", age: 24)
     @patient_2 = Patient.create!(name: "Denny Duquette", age: 39)
@@ -29,7 +29,9 @@ RSpec.describe 'Doctor Show Page', type: :feature do
     expect(page).to have_content("Doctor Universities:")
     expect(page).to have_content("Harvard University")
     expect(page).to have_content("Johns Hopkins University")
+    # Count 1 to test uniqiness of Universities
     expect(page).to have_content("Stanford University", count: 1)
+
     expect(page).not_to have_content("University of Pennsylvania")
   end
 end
