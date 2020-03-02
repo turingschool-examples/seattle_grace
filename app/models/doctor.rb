@@ -6,10 +6,8 @@ class Doctor <ApplicationRecord
 
   def patients_sorted
     patients.order(age: :desc)
-    # patients.sort.reverse
   end
 
-  def patient_names
-    patients_sorted.map {|patient| patient.name}
+  def remove_patient
   end
 end

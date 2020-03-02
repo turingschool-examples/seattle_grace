@@ -18,7 +18,8 @@ RSpec.describe 'When I visit a doctors show page' do
     expect(page).to have_content("Specialty: #{meredith.specialty}")
     expect(page).to have_content("Education: #{meredith.university}")
     expect(page).to have_content("Hospital: #{meredith.hospital.name}")
-    expect(page).to have_content("Patients: #{denny.name} and #{katie.name}")
-
+    expect(page).to have_content("Patients:")
+    expect(page).to have_content("#{denny.name}")
+    expect(page).to have_content("#{katie.name}")
   end
 end

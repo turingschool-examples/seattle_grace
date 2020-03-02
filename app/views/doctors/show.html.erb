@@ -3,8 +3,10 @@
 <p>Specialty: <%= @doctor.specialty %> </p>
 <p>Education: <%= @doctor.university %> </p>
 <p>Hospital: <%= @doctor.hospital.name %> </p>
-<p>Patients: <%= @doctor.patient_names.to_sentence %></p>
-
+<p>Patients:
 <% @doctor.patients_sorted.each do |patient| %>
-   <% patient.name %>
+  <li> <%= patient.name %>
+    <%= button_to "Remove Patient", "/doctor/:id/patients/remove_patient" %>
+  </li>
 <% end %>
+</p>
