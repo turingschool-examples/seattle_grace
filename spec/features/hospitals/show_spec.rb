@@ -22,7 +22,7 @@ describe "As a Visitor" do
     
     it "I see a unique list of universities that this hospital's doctors attended" do 
       visit "/hospitals/#{@hospital_1.id}"
-      save_and_open_page
+
       expect(page).to have_content(@dr_1.university)  
       expect(page).to have_content(@dr_2.university)  
       expect(page).to have_content(@dr_4.university)  
