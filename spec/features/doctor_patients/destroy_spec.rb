@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "on a hospital show page" do
+RSpec.describe "on a doctor's show page" do
   context "as a visitor" do
     before(:each) do
       @hospital_1 = Hospital.create(name: "Grey Sloan Memorial Hospital")
@@ -15,19 +15,18 @@ RSpec.describe "on a hospital show page" do
       @patient_3 = Patient.create(name: "Rebecca Pope", age: 13, doctors: [@doctor_1, @doctor_3])
       @patient_4 = Patient.create(name: "Zola Shepard", age: 40, doctors: [@doctor_4])
     end
-    it "can see the hospital's name" do
-      visit "/hospitals/#{@hospital_1.id}"
-      expect(page).to have_content(@hospital_1.name)
+    it "sees a button to remove that patient from the doctor" do
+      visit "/doctors/#{@doctor_2.id}"
+      expect(page).to have_button("Remove Patient")
     end
-    it "can see the number of doctors that work at the hospital" do
-      visit "/hospitals/#{@hospital_1.id}"
-      expect(page).to have_content("Number of Doctors at this Hospital: 2")
-    end
-    it "can see a unique list of universities that the doctors at the hosiptal have attended" do
-      visit "/hospitals/#{@hospital_1.id}"
-      expect(page).to have_content(@doctor_1.university)
-      expect(page).to have_content(@doctor_4.university)
-      expect(page).to_not have_content(@doctor_3.university)
+    it "can remove a patient that doctor's caseload" do
+      visit "/doctors/#{@doctor_2.id}"
+      expect(page).to have_content(@patient_2.name)
+
+      click_button "Remove Patient"
+
+      visit "/doctors/#{@doctor_2.id}"
+      expect(page).to_not have_content(@patient_2.name)
     end
   end
 end
