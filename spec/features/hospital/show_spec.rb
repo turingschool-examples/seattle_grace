@@ -17,14 +17,12 @@ RSpec.describe 'as a VISITOR' do
 
   describe 'when I visit the hospital SHOW PAGE' do
     it 'can see hospital information' do
-      within "#hospital_info" do
-        expect(page).to have_content('Name: Grey Sloan Memorial Hospital')
-      end
+      expect(page).to have_content('Grey Sloan Memorial Hospital')
     end
 
     it 'can see the number of doctors working at this hospital' do
       within '#doctor_count' do
-        expect(page).to have_content(2)
+        expect(page).to have_content(3)
       end
     end
 
