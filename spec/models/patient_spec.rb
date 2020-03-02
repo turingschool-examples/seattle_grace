@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Patient, type: :model do
+describe Patient, type: :model do
   describe 'validations' do
     it {should validate_presence_of :name}
     it {should validate_presence_of :age}
@@ -9,4 +9,6 @@ RSpec.describe Patient, type: :model do
     it {should have_many :patient_doctors}
     it {should have_many(:doctors).through(:patient_doctors)}
   end
+
+
 end
