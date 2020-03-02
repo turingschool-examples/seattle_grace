@@ -27,5 +27,9 @@ RSpec.describe Hospital, type: :model do
       expect(@seattle.doctor_count).to eq(4)
       expect(@greysloan.doctor_count).to eq(0)
     end
+
+    it ".distinct_universities" do
+      expect(@seattle.distinct_universities(@seattle)).to eq(["University of Pennsylvania", "Johns Hopkins University", "Harvard University", "Stanford University"])
+    end
   end
 end
