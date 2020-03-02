@@ -31,8 +31,6 @@ describe "As a Visitor" do
   end
 end
 
-# <h3>University: <%= "#{@doctor.university}" %></h3>
-
 
 # User Story 3, Hospital Show Page
 # ​
