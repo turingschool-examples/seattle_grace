@@ -51,7 +51,8 @@ RSpec.describe "as a visitor" do
       expect(page).to have_content(doctor1.specialty)
       expect(page).to have_content(doctor1.university)
       expect(page).to have_content(hospital1.name)
-      expect(page).to have_content(doctor1.patients)
+      expect(page).to have_content("Lola")
+      expect(page).to have_content("Ricky")
     end
   end
 end
