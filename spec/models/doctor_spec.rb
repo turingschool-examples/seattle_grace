@@ -26,4 +26,18 @@ RSpec.describe Doctor, type: :model do
     meredith.remove(katie.id)
     expect(meredith.patients).to eq([denny, rebecca])
   end
+
+  it 'patients_sorted' do
+    seattle_grace = Hospital.create(name: 'Seattle Grace Hospital')
+    katie = Patient.create(name: 'Katie Bryce', age: 24)
+    denny = Patient.create(name: 'Denny Duquette', age: 39)
+    rebecca = Patient.create(name: 'Rebecca Pope', age: 32)
+    meredith = Doctor.create(name: 'Meredith Grey',
+                             specialty: 'General Surgery',
+                             university: 'Harvard University',
+                             hospital: seattle_grace,
+                             patients: [denny, katie, rebecca])
+
+    expect(meredith.patients_sorted).to eq([denny, rebecca, katie])
+  end
 end
