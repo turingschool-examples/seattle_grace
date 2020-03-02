@@ -19,6 +19,8 @@ RSpec.describe "As a visitor" do
     expect(page).to have_content("Harvard University")
     expect(page).to have_content("University of Maine")
     expect(page).to have_content("Duke University")
+
+    expect(@grey_hospital.doctors.unique_education.count).to eq(3)
   end
 end
 
