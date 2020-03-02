@@ -23,5 +23,22 @@ describe 'As a visitor' do
         expect(page).to have_content("#{@denny.name}")
       end
     end
+    
+    it "I can remove a patient from a doctor's workload" do
+      within ("#patient-#{@katie.id}") do
+        expect(page).to have_link("remove patient")
+      end
+      
+      within ("#patient-#{@denny.id}") do
+        click_link("remove patient")
+      end
+      
+      expect(current_path).to eq("/doctors/#{@meredith.id}")
+      
+      within ("#patients") do
+        expect(page).to have_content("#{@katie.name}")
+        expect(page).to_not have_content("#{@denny.name}")
+      end
+    end
   end
 end
