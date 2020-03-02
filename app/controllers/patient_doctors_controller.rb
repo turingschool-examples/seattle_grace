@@ -4,7 +4,7 @@ class PatientDoctorsController < ApplicationController
     @doctor = Doctor.find(params[:doctor_id])
     if @doctor.patients.delete(@patient)
       flash[:success] = 'Patient removed.'
-      redirect_to doctor_path(doctor)
+      redirect_to doctor_path(@doctor)
     end
   end
 end
