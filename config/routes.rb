@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :doctors, only: [:show]
   resources :patients, only: [:index]
   resources :hospitals, only: [:show]
+
+  delete "/doctor_patients/:doctor_id/:patient_id", to: "doctor_patients#destroy"
 end
