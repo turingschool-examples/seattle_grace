@@ -1,0 +1,12 @@
+<h1>Doctor's Show Page</h1>
+<h2><%= @doctor.name %></h2>
+<h4><%= @doctor.specialty %></h4>
+<h4><%= @doctor.university %></h4>
+<h4><%= @doctor.hospital.name %></h4>
+
+    <h2>Patients:</h2>
+    <% @doctor.patients.each do |patient|%>
+    <section id = "patient-<%= patient.id %>">
+      <%= patient.name %>
+    </section>
+    <% end %>

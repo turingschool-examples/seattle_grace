@@ -30,9 +30,9 @@ describe "as a visitor" do
       visit "/doctors/#{@merideth.id}"
 
       expect(page).to have_content(@merideth.name)
-      expect(page).to have_content(@merideth.speciality)
+      expect(page).to have_content(@merideth.specialty)
       expect(page).to have_content(@merideth.university)
-      expect(page).to have_content(@merideth.hospital)
+      expect(page).to have_content(@merideth.hospital.name)
 
       within "#patient-#{@katie.id}" do
         expect(page).to have_content(@katie.name)
@@ -45,17 +45,6 @@ describe "as a visitor" do
   end
 end
 
-# As a visitor
-# When I visit a doctor's show page
-# I see all of that doctor's information including:
-#   - name
-#   - specialty
-#   - university where they got their doctorate
-# And I see the name of the hospital where this doctor works
-# And I see the names of all of the patients this doctor has
-# ```
-# ​
-# ```
 # User Story 2, Patient Index Page
 # ​
 # As a visitor
