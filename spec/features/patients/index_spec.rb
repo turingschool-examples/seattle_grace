@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor " , type: :feature do 
 
-  describe "When I visit a doctor's show page" do 
+  describe "When I visit a patient's index page" do 
 
     before(:each) do 
       @hospital1 = Hospital.create!(name: "Grey Sloan Memorial Hospital")
@@ -20,24 +20,11 @@ RSpec.describe "As a visitor " , type: :feature do
       @patient4  = @doctor1.patients.create!(name: "Zola Shepherd", age: 2)
     end
 
-    it "I see all the doctor's information" do 
-
-      visit "/doctors/#{@doctor1.id}"
-
-      expect(page).to have_content("Name: #{@doctor1.name}")
-      expect(page).to have_content("Specialty: #{@doctor1.specialty}")
-      expect(page).to have_content("University: #{@doctor1.university}")
-      expect(page).to have_content("Hospital: #{@doctor1.hospital.name}")
-
-      expect(page).to_not have_content("Name: #{@doctor2.name}")
-      expect(page).to_not have_content("Name: #{@doctor3.name}")
-      expect(page).to_not have_content("Name: #{@doctor4.name}")
-save_and_open_page
-      expect(page).to have_content("Patients: #{@patient1.name}, #{@patient3.name}, #{@patient4.name},")
-      expect(page).to_not have_content(@patient2.name)
-
+    it "I see a list of patients from youngest to oldest" do
+      
+      visit "/patients"
+      expect(page).to have_content("Denny Duquette, Rebecca Pope, Katie Bryce, Zola Shepherd")
     end
-
 
   end
 

@@ -6,4 +6,8 @@ class Patient < ApplicationRecord
   has_many :doctor_patients
   has_many :doctors, through: :doctor_patients
 
+  def self.in_order
+    Patient.order(age: :desc)
+  end
+
 end
