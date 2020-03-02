@@ -32,13 +32,37 @@ RSpec.describe "As a visitor " , type: :feature do
       expect(page).to_not have_content("Name: #{@doctor2.name}")
       expect(page).to_not have_content("Name: #{@doctor3.name}")
       expect(page).to_not have_content("Name: #{@doctor4.name}")
-save_and_open_page
-      expect(page).to have_content("Patients: #{@patient1.name}, #{@patient3.name}, #{@patient4.name},")
+      expect(page).to have_content("Patients (from oldest to youngest): #{@patient1.name}, #{@patient3.name}, #{@patient4.name},")
       expect(page).to_not have_content(@patient2.name)
 
     end
 
+    it "I can delete a patient from the doctor's caseload" do 
+      
+      visit "/doctors/#{@doctor1.id}"
+
+      within("div#patient-#{@patient3.id}") do 
+        expect(page).to have_content(@patient3.name)
+      end
+      
+      within("div#patient-#{@patient1.id}") do 
+        click_link("Delete")
+      end
+
+      expect(current_path).to eq("/doctors/#{@doctor1.id}")
+      expect(page).to_not have_content(@patient1.name)
+
+    end
 
   end
 
 end
+
+# User Story 4, Remove a Patient from a Doctor
+# ​
+# As a visitor
+# When I visit a Doctor's show page
+# Next to each patient's name, I see a button to remove that patient from that doctor's caseload
+# When I click that button for one patient
+# I'm brought back to the Doctor's show page
+# And I no longer see that patient's name listed 

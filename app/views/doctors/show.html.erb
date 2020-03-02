@@ -4,7 +4,16 @@
 <p> Specialty: <%= @doctor.specialty %> </p>
 <p> University: <%= @doctor.university %>  </p>
 <p> Hospital: <%= @doctor.hospital.name %> </p>
-<p> Patients: 
+<p> Patients (from oldest to youngest): 
 <% @doctor.patients.each do |patient| %> 
     <%= patient.name %>,
 <% end %> </p>
+
+<% @doctor.patients.each do |patient| %> 
+    <hr>
+    <div id= <%= "patient-#{patient.id}" %> >
+      <%= patient.name %> 
+      <%= link_to "Delete", "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :delete %>
+    </div>
+<% end %>
+
