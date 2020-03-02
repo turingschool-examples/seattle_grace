@@ -26,10 +26,3 @@ RSpec.describe 'As a Visitor' do
     end
   end
 end
-
-
-      # User Story 2, Patient Index Page
-      # ​
-      # As a visitor
-      # When I visit the patient index page
-      # I see the names of all patients listed from oldest to youngest
