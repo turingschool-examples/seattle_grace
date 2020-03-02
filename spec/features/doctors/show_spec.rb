@@ -57,5 +57,34 @@ RSpec.describe 'As a Visitor' do
 				expect(page).to have_content(@katie.name)
 			end
 		end
+
+		it "I see a button to remove that patient from that doctor's caseload When I click that button for one patient I'm brought back to the Doctor's show page And I no longer see that patient's name listed " do
+
+			within "#patient-#{@zola.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@danny.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@denny.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@rebecca.id}" do
+				expect(page).to have_button("Remove Patient")
+			end
+
+			within "#patient-#{@katie.id}" do
+				expect(page).to have_button("Remove Patient")
+
+				click_on "Remove Patient"
+			end
+
+			expect(current_path).to eq("/hospitals/#{@south.id}/doctors/#{@holly.id}")
+
+			expect(page).not_to have_content(@katie.name)
+		end			
 	end
 end
