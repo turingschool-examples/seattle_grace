@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
-  describe 'from the hosptial show page' do
+  describe 'from the hospital show page' do
     it "I see the hospital's name, number of doctors, and universities" do
       hospital1 = Hospital.create!(name: 'Grey Sloan Memorial Hospital')
       hospital2 = Hospital.create!(name: 'Pacific Northwest General Hospital')
@@ -19,8 +19,8 @@ RSpec.describe 'As a visitor' do
 
       visit hospital_path(hospital1.id)
 
-      expect(page).to have_content(hosptial1.name)
-      expect(page).to_not have_content(hosptial2.name)
+      expect(page).to have_content(hospital1.name)
+      expect(page).to_not have_content(hospital2.name)
       expect(page).to have_content("Number of doctors: 2")
       expect(page).to have_content("Universities that this hospital's doctors attended: Harvard University, Johns Hopkins University")
       expect(page).to_not have_content("Stanford University")
