@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "/patients", to: "patients#index"
   get "/hospitals/:id", to: "hospitals#show"
   
-  patch "/doctors/:doctor_id/patients/:id", to: "doctor_patients#update"
+  delete "/doctors/:doctor_id/patients/:id", to: "doctor_patients#destroy"
 end

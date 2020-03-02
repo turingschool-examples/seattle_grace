@@ -1,5 +1,5 @@
 class DoctorPatientsController < ApplicationController
-  def update
+  def destroy
      patient = Patient.find(params[:id])
      doctor = Doctor.find(params[:doctor_id])
      DoctorPatient.where(patient: patient, doctor: doctor.id).destroy_all
