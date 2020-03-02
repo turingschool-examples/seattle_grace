@@ -14,7 +14,8 @@ RSpec.describe 'Hospitals show page' do
     visit hospital_path(hospital1.id)
 
     expect(page).to have_content('Sacred Heart')
-    expect(page).to have_content('3 Doctors')
+    expect(page).to have_content('3')
+    expect(page).to_not have_content('4')
     expect(page).to have_content('Harvard University', count: 1)
     expect(page).to have_content('Johns Hopkins University', count: 1)
 
