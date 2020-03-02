@@ -10,8 +10,9 @@ RSpec.describe Hospital, type: :model do
 
   describe 'methods' do
     it " distinct schools  " do
-      Hospital.destroy_all
-      Doctor.destroy_all
+      # Patient.destroy_all
+      # Doctor.destroy_all
+      # Hospital.destroy_all
 
            hospital1 = Hospital.create(
              name: "Grey Sloan Memorial Hospital"

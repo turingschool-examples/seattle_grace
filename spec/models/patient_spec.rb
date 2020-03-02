@@ -13,7 +13,6 @@ RSpec.describe Patient, type: :model do
 
   describe 'methods' do
     before :each do
-      Patient.destroy_all
     @patient1 = Patient.create!(name: "Katie Bryce",
                             age: 24)
     @patient2 = Patient.create!(name: "Denny Duquette",
