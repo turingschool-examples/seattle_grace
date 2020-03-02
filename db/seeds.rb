@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Doctors:
+
+meredith = Doctor.create(name: 'Meredith Grey',
+                         specialty: 'General Surgery',
+                         university: 'Harvard University',
+                         hospital: seattle_grace,
+                         patients: [denny, katie])
 #
 # Name: Meredith Grey
 # Specialty: General Surgery
@@ -26,6 +32,7 @@
 #
 #
 # Hospitals:
+seattle_grace = Hospital.create(name: 'Seattle Grace Hospital')
 #
 # Grey Sloan Memorial Hospital
 # Pacific Northwest General Hospital
@@ -33,6 +40,12 @@
 # Seattle Grace Hospital
 #
 # Patients:
+
+katie = Patient.create(name: 'Katie Bryce', age: 24)
+denny = Patient.create(name: 'Denny Duquette', age: 39)
+rebecca = Patient.create(name: 'Rebecca Pope', age: 32)
+zola = Patient.create(name: 'Zola Shepherd', age: 2)
+
 #
 # Name: Katie Bryce
 # Age: 24
