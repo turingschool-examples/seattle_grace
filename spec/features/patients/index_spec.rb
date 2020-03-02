@@ -17,9 +17,7 @@ RSpec.describe 'As a User' do
 
 
 	it "patients" do
-		expect(page).to have_content("Katie Bryce")
-		expect(page).to have_content("Denny Duquette")
-		expect(page).to have_content("Rebecca Pope")
+		expect(page).to have_content("Patients\nDenny Duquette\nRebecca Pope\nKatie Bryce")
 	end
 
    end

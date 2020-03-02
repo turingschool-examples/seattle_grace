@@ -19,9 +19,13 @@ RSpec.describe Hospital, type: :model do
 end	
 		it "doc_count" do
 			expect(@hospital2.doc_count).to eq(3)	
+			doc = Doctor.create(name: 'Meredi', specialty: 'Generalry', university: 'Harvard University', hospital: @hospital2)
+			expect(@hospital2.doc_count).to eq(4)	
 		end
 
 		it "uniq_universities" do
+			expect(@hospital2.uniq_universities).to eq(["Harvard University", "Johns Hopkins University"])
+			doc = Doctor.create(name: 'Meredi', specialty: 'Generalry', university: 'Harvard University', hospital: @hospital2)
 			expect(@hospital2.uniq_universities).to eq(["Harvard University", "Johns Hopkins University"])
 		end
 	end

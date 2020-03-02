@@ -24,9 +24,17 @@ RSpec.describe 'As a User' do
 	it "doc info" do
 		within "#docs" do
 			expect(page).to have_content("2")
+			expect(page).to_not have_content("3")
 			expect(page).to have_content("Harvard University")
 			expect(page).to have_content("Johns Hopkins University")
 		end
+		doc = Doctor.create(name: 'Mered', specialty: 'General Surgery', university: 'Harvard University', hospital: @hospital2)
+		visit "/hospitals/#{@hospital2.id}"
+		within "#docs" do
+			expect(page).to_not have_content("2")
+                        expect(page).to have_content("3")
+		end
+
 	end
   end
 end

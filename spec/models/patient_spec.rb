@@ -16,6 +16,8 @@ describe Patient, type: :model do
                 	patient2 = Patient.create( name: 'Denny Duquette', age: 39)
                 	patient3 = Patient.create( name: 'Rebecca Pope', age: 32)
                 	expect(Patient.all_names_alpha).to eq(["Denny Duquette", "Rebecca Pope", "Katie Bryce"])
+                	patient4 = Patient.create( name: 'Rope', age: 132)
+                	expect(Patient.all_names_alpha).to eq(["Rope", "Denny Duquette", "Rebecca Pope", "Katie Bryce"])
 		end
 	end
 end
