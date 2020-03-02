@@ -16,11 +16,8 @@ RSpec.describe 'As a Visitor' do
 
 		it 'I see the names of all patients listed from oldest to youngest' do
 
-			expect(Patient[0]).to eq(@danny)
-			expect(Patient[1]).to eq(@denny)
-			expect(Patient[2]).to eq(@katie)
-			expect(Patient[3]).to eq(@rebecca)
-			expect(Patient[4]).to eq(@zola)
+			expect(Patient.first).to eq(@danny)
+			expect(Patient.last).to eq(@zola)
 
 			expect(page).to have_content(@danny.name)
 			expect(page).to have_content(@denny.name)
