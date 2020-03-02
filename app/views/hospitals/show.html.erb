@@ -3,7 +3,7 @@
 
 <p>Number of Doctors: <%= @hospital.number_of_doctors %></p>
 <h3>List of Universities Doctors at <%= @hospital.name %> attended:</h3>
-<p><% @hospital.doctors.each do |doctor| %></p>
-  <p><%= doctor.university %></p>
+<p><% @hospital.unique_universities.each do |university| %></p>
+  <p><%= university %></p>
 <% end %>
 
