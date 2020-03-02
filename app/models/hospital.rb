@@ -7,6 +7,6 @@ class Hospital <ApplicationRecord
   end
 
   def university_list
-    doctors.pluck(:university).uniq
+    doctors.distinct(:university).pluck(:university)
   end
 end
