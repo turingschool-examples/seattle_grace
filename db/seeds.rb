@@ -10,9 +10,9 @@
 # hospitals have many doctors
 # doctors belong to a hospital
 
-hos1 = Hospital.create(name: "St. Marry's") dr1
-hos2 = Hospital.create(name: "St. Joseph's") dr2
-hos3 = Hospital.create(name: "St. John's") dr3
+hos1 = Hospital.create(name: "St. Marry's")
+hos2 = Hospital.create(name: "St. Joseph's") 
+hos3 = Hospital.create(name: "St. John's")
 
 dr1 = hos1.doctors.create(name: "Marry", specialty: "Brain Surgen", university: "DU")
 dr2 = hos2.doctors.create(name: "Joseph", specialty: "NP", university: "CU")
