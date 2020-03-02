@@ -22,11 +22,12 @@ RSpec.describe 'patients index page', type: :feature do
   end
 
   it "can see name of all patients from oldest to youngest" do
-    expect(page).to have_content(@pat6.name)
-    expect(page).to have_content(@pat2.name)
-    expect(page).to have_content(@pat4.name)
-    expect(page).to have_content(@pat5.name)
-    expect(page).to have_content(@pat3.name)
-    expect(page).to have_content(@pat1.name)
+    save_and_open_page
+    expect(page).to have_content("#{@pat6.name} (#{@pat6.age})")
+    expect(page).to have_content("#{@pat2.name} (#{@pat2.age})")
+    expect(page).to have_content("#{@pat4.name} (#{@pat4.age})")
+    expect(page).to have_content("#{@pat5.name} (#{@pat5.age})")
+    expect(page).to have_content("#{@pat3.name} (#{@pat3.age})")
+    expect(page).to have_content("#{@pat1.name} (#{@pat1.age})")
   end
 end

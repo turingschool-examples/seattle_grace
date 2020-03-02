@@ -2,5 +2,5 @@
 <p>(oldest to youngest)</p><br>
 
 <% @patients.oldest_youngest.each do |patient| %>
-  <li><%= patient.name %></li>
+  <li><%= patient.name %> (<%= patient.age %>)</li>
 <% end %>
