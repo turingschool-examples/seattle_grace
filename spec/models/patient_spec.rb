@@ -10,7 +10,7 @@ RSpec.describe Patient, type: :model do
     it {should have_many(:doctors).through(:doctor_patients)}
   end
 
-  describe 'instance methods' do
+  describe 'class methods' do
     it ".order_by_age_from_oldest" do
       alex = Patient.create(name: "Alex Gallant", age: 31)
       shane = Patient.create(name: "Shane Walton", age: 29)
