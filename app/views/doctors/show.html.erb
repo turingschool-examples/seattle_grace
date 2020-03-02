@@ -4,6 +4,9 @@
   <p><%= @doctor.specialty %></p>
   <p><%= @doctor.university %></p>
   <% @doctor.patients.each do |patient| %>
-    <p><%= patient.name %></p>
+    <section id="patient-<%= patient.id %>">
+      <p><%= patient.name %></p>
+      <%= link_to 'Remove Patient', "/doctors/#{@doctor.id}/patients/#{patient.id}", method: :delete %>
+    </section>
   <% end %>
 </div>
