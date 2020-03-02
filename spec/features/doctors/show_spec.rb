@@ -32,6 +32,7 @@ RSpec.describe 'doctor show', type: :feature do
     end
     it "see all info " do
       visit "/doctors/#{@doc1.id}"
+
       expect(page).to have_content(@doc1.name)
       expect(page).to have_content(@hospital1.name)
       expect(page).to have_content(@doc1.university)

@@ -5,5 +5,5 @@
 
 <% @doctor.patients.each do |patient|%>
 <h2><%= patient.name %> </h2>
-<h2><%= patient.name %> </h2>
+<h2><%= link_to "Delete #{patient.name}","/doctors/#{@doctor.id}/patients/#{patient.id}", action: "delete" %> </h2>
 <% end %>
