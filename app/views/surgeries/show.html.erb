@@ -20,6 +20,7 @@
     <%= submit_tag 'Submit' %>
   <% end %>
 
+<h2>Doctors on Surgery Team:</h2>
   <% @surgery.doctors.each do |doctor| %>
     <p><%= doctor.name %>
   <% end %>
