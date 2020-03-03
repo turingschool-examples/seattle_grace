@@ -13,4 +13,12 @@ class Surgery < ApplicationRecord
     Doctor.count
   end
 
+  def others_today
+    require "pry"; binding.pry
+    # Surgery.pluck(:title)
+    where('day Monday').pluck(:title)
+    # Surgery.select(:title).where(‘day = Monday’)
+    #need to sort where day == day of current surgery NOT hard-coded
+  end
+
 end

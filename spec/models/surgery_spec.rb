@@ -14,4 +14,8 @@ RSpec.describe Surgery, type: :model do
   it '.doctor_count' do
     #need test
   end
+
+  it '.others_today' do
+    #need test
+  end
 end
