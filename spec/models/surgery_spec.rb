@@ -10,4 +10,8 @@ RSpec.describe Surgery, type: :model do
     it {should have_many :surgery_doctors}
     it { should have_many(:doctors).through(:surgery_doctors)}
   end
+
+  it '.doctor_count' do
+    #need test
+  end
 end
