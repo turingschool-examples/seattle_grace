@@ -4,6 +4,11 @@ RSpec.describe 'As a Visitor' do
 	describe "When I visit an surgery's show page" do
 
 		before(:each) do
+			@hosp1 = Hospital.create!(name: "Mass General")
+
+			@doc1 = @hosp1.doctors.create!(name: "Hawkeye", specialty: "Thorasic", university: "UMass")
+			@doc2 = @hosp1.doctors.create!(name: "Hunicut", specialty: "Vascular", university: "Minnesota")
+			
 			@surgery1 = Surgery.create!(title: "Bypass", day: "Monday", or_number: 10)
 
 			visit surgery_path(@surgery1)
@@ -13,13 +18,17 @@ RSpec.describe 'As a Visitor' do
 			expect(page).to have_content(@surgery1.title)
 			expect(page).to have_content(@surgery1.or_number)
 		end
+
+		it 'I see the count of doctors that are on this surgery' do
+			expect(page).to have_content("Doctor Count: 2")
+		end
 	end
 end
 
 # As a visitor
 # When I visit a surgery's show page
 
-# I see the title and operating room number of that surgery
+
 
 # And I see the count of doctors that are on this surgery
 
