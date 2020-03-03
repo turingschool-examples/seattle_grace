@@ -11,7 +11,7 @@ class SurgeriesController < ApplicationController
     doctor = Doctor.find(params[:doctor_id])
     surgery = Surgery.find(params[:id])
 
-    surgery.add_doctor(doctor)
+    surgery.doctor_surgeries.create(doctor_id: doctor.id, surgery_id: surgery.id)
 
     redirect_to surgery_path(surgery)
   end

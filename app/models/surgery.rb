@@ -13,8 +13,4 @@ class Surgery < ApplicationRecord
   def surgeries_today
     Surgery.where(day: day)
   end
-
-  def add_doctor(doctor)
-    doctors.push(doctor)
-  end
 end
