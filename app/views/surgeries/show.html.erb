@@ -1,5 +1,12 @@
 <section id='surgery_info'>
   <p>Title: <%= @surgery.title %></p>
   <p>Operating Room: <%= @surgery.operating_room %></p>
-  <p>Doctor Count: <%= @surgery.doc_count %>
+  <p>Doctor Count: <%= @surgery.doc_count %></p>
 <section>
+
+<section id='surgeries_today'>
+  <p>Other surgeries happening this day of the week:</p>
+  <% @surgery.surgeries_today.each do |surgery| %>
+    <p><%= surgery %>
+  <% end %>
+</section>

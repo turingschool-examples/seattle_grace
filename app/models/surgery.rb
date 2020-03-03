@@ -9,4 +9,8 @@ class Surgery < ApplicationRecord
   def doc_count
     doctors.count
   end
+
+  def surgeries_today
+    require 'pry'; binding.pry
+  end
 end

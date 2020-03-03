@@ -22,7 +22,10 @@ RSpec.describe 'As a VISITOR' do
         expect(page).to have_content('Title: Gallbladder Removal')
         expect(page).to have_content('Operating Room: 121')
         expect(page).to have_content('Doctor Count: 2')
-        expect(page).to have_content('') 
+      end
+
+      within '#surgeries_today' do
+        expect(page).to have_content('Limb Amputation')
       end
     end
   end
