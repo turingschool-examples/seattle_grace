@@ -38,20 +38,12 @@ describe "As a Visitor" do
       visit "/surgeries/#{@surgery_1.id}"
 
       expect(page).to have_content("Other surgeries happening this day of the week:")
-      
+save_and_open_page
       expect(page).to have_content(@surgery_1.title)
       expect(page).to have_content(@surgery_2.title)
     end 
   end
 end
-
-
-
-
-
-
-
-
 
 
 
