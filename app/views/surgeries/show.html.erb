@@ -1,0 +1,23 @@
+<h2>SURGERY SHOW PAGE</h1>
+
+<%= @surgery.title %></br>
+<%= @surgery.day_of_week %></br>
+<%= @surgery.operating_room_number %></br></br>
+
+Doctor's on this Surgery:</br>
+Doctors: <%= @surgery.total_doctors %></br></br>
+
+Enter doctor ID to add doctor to this surgery:
+<%= form_tag surgeries_path(@surgery), method: :post do %>
+  <%= label_tag :doctor_id, "Doctor ID: " %>
+  <%= text_field_tag :doctor_id %>
+  <%= submit_tag 'Submit'%>
+<% end %>
+
+<h2>Other surgeries happening this day of the week:</h2>
+<%= Surgery.other_surgeries %></br>
+
+Doctors on this Surgery:</br>
+<%= @surgery.doctors.each do |doctor| %>
+  <%= doctor.name %>
+<% end %>
