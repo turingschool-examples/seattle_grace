@@ -1,12 +1,27 @@
 <section id='surgery_info'>
   <p>Title: <%= @surgery.title %></p>
+  <p>Day Of Surgery: <%= @surgery.day %>
   <p>Operating Room: <%= @surgery.operating_room %></p>
   <p>Doctor Count: <%= @surgery.doc_count %></p>
 <section>
 
 <section id='surgeries_today'>
-  <p>Other surgeries happening this day of the week:</p>
+  <p>Other surgeries happening this day of the week(<%= @surgery.day %>):</p>
   <% @surgery.surgeries_today.each do |surgery| %>
     <p><%= surgery.title %>
   <% end %>
 </section>
+
+<section id='add_doctor_section'>
+  <p>Add A Doctor To This Surgery</p>
+  <%= form_tag surgery_path(@surgery), method: :patch do %>
+    <%= label_tag :doctor_id %>
+    <%= text_field_tag :doctor_id %>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+
+  <% @surgery.doctors.each do |doctor| %>
+    <p><%= doctor.name %>
+  <% end %>
+</section>
+

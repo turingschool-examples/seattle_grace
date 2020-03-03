@@ -7,6 +7,7 @@ RSpec.describe 'As a VISITOR' do
 
       @doc_1 = @hospital_1.doctors.create!(name: 'Meredith Grey', specialty: 'General Surgery', university: 'Harvard University')
       @doc_2 = @hospital_1.doctors.create!(name: 'Alex Karev', specialty: 'Pediatric Surgery', university: 'Johns Hopkins University')
+      @doc_3 = @hospital_1.doctors.create!(name: 'Miranda Bailey', specialty: 'General Surgery', university: 'Stanford University')
 
       @surgery_1 = Surgery.create!(title: 'Gallbladder Removal', day: 'Friday', operating_room: 121)
       @surgery_2 = Surgery.create!(title: 'Photorefractive Kerectonomy', day: 'Monday', operating_room: 206)
@@ -15,6 +16,7 @@ RSpec.describe 'As a VISITOR' do
       @doc_1.doctor_surgeries.create!(surgery_id: @surgery_1.id, doctor_id: @doc_1.id)
       @doc_2.doctor_surgeries.create!(surgery_id: @surgery_1.id, doctor_id: @doc_2.id)
     end
+
     it 'can see information about a surgery' do
       visit "/surgeries/#{@surgery_1.id}"
 
@@ -26,6 +28,22 @@ RSpec.describe 'As a VISITOR' do
 
       within '#surgeries_today' do
         expect(page).to have_content('Limb Amputation')
+      end
+    end
+
+    it 'can add a doctor to a surgery' do
+      visit "/surgeries/#{@surgery_1.id}"
+
+      within '#add_doctor_section' do
+        expect(page).to have_content('Add A Doctor To This Surgery')
+        fill_in :doctor_id, with: @doc_3.id
+        click_on 'Submit'
+
+        expect(page).to have_content('Miranda Bailey')
+      end
+
+      within '#surgery_info' do
+        expect(page).to have_content('Doctor Count: 3')
       end
     end
   end
