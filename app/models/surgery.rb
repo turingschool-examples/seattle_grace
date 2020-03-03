@@ -6,4 +6,9 @@ class Surgery <ApplicationRecord
   def total_doctors
     doctors.count 
   end
+
+  def self.other_surgeries
+    where.not(day_of_week: 'Tuesday').pluck(:title)
+  end
+
 end
