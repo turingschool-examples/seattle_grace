@@ -7,6 +7,6 @@
 <section id='surgeries_today'>
   <p>Other surgeries happening this day of the week:</p>
   <% @surgery.surgeries_today.each do |surgery| %>
-    <p><%= surgery %>
+    <p><%= surgery.title %>
   <% end %>
 </section>

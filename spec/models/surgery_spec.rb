@@ -31,7 +31,7 @@ RSpec.describe Surgery, type: :model do
     end
 
     it '.surgeries_today' do
-      expected = [@surgery_3.title]
+      expected = [@surgery_1, @surgery_3]
       expect(@surgery_1.surgeries_today).to eq(expected)
     end
   end

@@ -11,6 +11,6 @@ class Surgery < ApplicationRecord
   end
 
   def surgeries_today
-    require 'pry'; binding.pry
+    Surgery.where(day: day)
   end
 end
