@@ -1,0 +1,21 @@
+<h1><%= "#{@surgery.title}'s Page" %></h1>
+<h3>Day of Opp: <%= "#{@surgery.day_of_opp}" %></h3>
+<h3>Room Number: <%= "#{@surgery.operating_room_number}" %></h3>
+
+<h3>Number of Doctors Performing Surgery: <%=  @surgery.count_of_drs%></h3>
+
+<h3>Other surgeries happening this day of the week: <% Surgery.where(day_of_opp: @surgery.day_of_opp).pluck(:title).each do |title| %></h3>
+  <li><%= title %></li> 
+<% end %>
+
+
+<h2>Add A Doctor To This Surgery</h2>
+<%= form_tag "/surgeries/#{@surgery.id}/doctors/" do %>
+  <%= label_tag :doctor_id %>
+  <%= text_field_tag :doctor_id %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<h3>Doctors Performing Surgery: <% @surgery.doctor.each do |dr|%></h3>
+  <li><%= dr.name %></li> 
+<% end %>
