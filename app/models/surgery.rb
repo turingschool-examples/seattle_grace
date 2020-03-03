@@ -2,7 +2,7 @@ class Surgery < ApplicationRecord
 
   validates_presence_of :title
   validates_presence_of :day
-  validates_presence_of :or_numer
+  validates_presence_of :or_number
 
   belongs_to :hospital
 
