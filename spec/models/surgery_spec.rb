@@ -29,5 +29,10 @@ RSpec.describe Surgery, type: :model do
     it '.doc_count' do
       expect(@surgery_1.doc_count).to eq(2)
     end
+
+    it '.surgeries_today' do
+      expected = [@surgery_3.title]
+      expect(@surgery_1.surgeries_today).to eq(expected)
+    end
   end
 end
